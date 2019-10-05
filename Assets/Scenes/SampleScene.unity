@@ -942,3 +942,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 2092283586}
   speed: 10
+  Sensitivity: 10
+  MaxAngle: 90
