@@ -8,7 +8,8 @@ public class BallMovement : MonoBehaviour
     public Rigidbody rb;
 
     public float speed = 10f;
-    
+    public int Sensitivity = 10;
+    public float MaxAngle = 90f;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,8 +25,15 @@ public class BallMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "Wall")
         {
-            DateTime now = DateTime.Now;
-            Debug.Log(now.ToString("F"));
+            Vector3 v = rb.velocity;
+            v.x *= -1f;
+            rb.velocity = v;
+        }
+        if (collision.gameObject.tag == "Player")
+        {
+            Vector3 v = rb.velocity;
+            v.z *= -1f;
+            rb.velocity = v;
         }
     }
 }
