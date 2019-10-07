@@ -6,9 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public Transform player1, player2;
     public bool player1Left, player1Right, player2Left, player2Right;
-
     public float speed = 10f;
-
     // Start is called before the first frame update
     void Start()
     {
