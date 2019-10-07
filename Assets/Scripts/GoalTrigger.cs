@@ -5,19 +5,20 @@ public class GoalTrigger : MonoBehaviour
     public GameManager gameManager;
     public Rigidbody ball;
 
-    void OnTriggerEnter()
+    void OnTriggerEnter(Collider other)
     {
-        Debug.Log("OnTriggerEnter");
-        if (ball.position.z > 0)
+        if (other.tag == "Ball")
         {
-            //the scorer is player2
-            gameManager.Goal(2);
+            if (ball.position.z > 0)
+            {
+                //the scorer is player2
+                gameManager.Goal(2);
+            }
+            else
+            {
+                //the scorer is player1
+                gameManager.Goal(1);
+            }
         }
-        else
-        {
-            //the scorer is player1
-            gameManager.Goal(1);
-        }
-
     }
 }
