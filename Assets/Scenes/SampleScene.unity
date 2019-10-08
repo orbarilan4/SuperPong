@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1089,6 +1089,8 @@ GameObject:
   - component: {fileID: 978664432}
   - component: {fileID: 978664431}
   - component: {fileID: 978664435}
+  - component: {fileID: 978664436}
+  - component: {fileID: 978664430}
   m_Layer: 0
   m_Name: Player1
   m_TagString: player
@@ -1096,6 +1098,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &978664430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 978664429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba71297ff984142a3b74656ab93bf020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitSpeed: 500
+  leftKickCode: 303
+  rightKickCode: 13
 --- !u!65 &978664431
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1184,6 +1201,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &978664436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 978664429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06601c990f3f6a6448229c267035aee8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  leftKeyCode: 276
+  rightKeyCode: 275
 --- !u!1 &1298973260
 GameObject:
   m_ObjectHideFlags: 0
@@ -1287,7 +1319,6 @@ GameObject:
   - component: {fileID: 1492212523}
   - component: {fileID: 1492212522}
   - component: {fileID: 1492212521}
-  - component: {fileID: 1492212525}
   m_Layer: 0
   m_Name: Playground
   m_TagString: Playground
@@ -1367,25 +1398,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1492212525
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1492212520}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06601c990f3f6a6448229c267035aee8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player1: {fileID: 978664434}
-  player2: {fileID: 1499114959}
-  player1Left: 0
-  player1Right: 0
-  player2Left: 0
-  player2Right: 0
-  speed: 10
 --- !u!1 &1499114955
 GameObject:
   m_ObjectHideFlags: 0
@@ -1399,6 +1411,8 @@ GameObject:
   - component: {fileID: 1499114957}
   - component: {fileID: 1499114956}
   - component: {fileID: 1499114961}
+  - component: {fileID: 1499114962}
+  - component: {fileID: 1499114960}
   m_Layer: 0
   m_Name: Player2
   m_TagString: player
@@ -1478,6 +1492,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1499114960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1499114955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba71297ff984142a3b74656ab93bf020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitSpeed: 150
+  leftKickCode: 32
+  rightKickCode: 304
 --- !u!54 &1499114961
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1494,6 +1523,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1499114962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1499114955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06601c990f3f6a6448229c267035aee8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  leftKeyCode: 97
+  rightKeyCode: 100
 --- !u!1 &1508791770
 GameObject:
   m_ObjectHideFlags: 0

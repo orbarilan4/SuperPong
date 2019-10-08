@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
 
     public void Goal(int scorer)
     {
-        Debug.Log("Player" + scorer + " scores!");
+        //Debug.Log("Player" + scorer + " scores!");
 
         if (scorer == 1)
         {

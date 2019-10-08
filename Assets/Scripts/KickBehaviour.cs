@@ -5,6 +5,7 @@ using UnityEngine;
 public class KickBehaviour : MonoBehaviour
 {
     public float hitSpeed = 150f;
+    private const float MAX_Y_ROTATION_ANGLE = 50f;
 
     private bool rightKick, leftkick;
 
@@ -17,12 +18,12 @@ public class KickBehaviour : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (Input.GetKeyDown(rightKickCode) && !this.rightKick)
         {
             this.rightKick = true;
-        }
+        } 
         if (Input.GetKeyUp(rightKickCode))
         {
             this.rightKick = false;
@@ -36,13 +37,21 @@ public class KickBehaviour : MonoBehaviour
             this.leftkick = false;
         }
 
+        Vector3 currentRotation = transform.localRotation.eulerAngles; 
         if (this.rightKick) 
         {
-            transform.Rotate(Vector3.up * hitSpeed * Time.deltaTime);
+            if (currentRotation.y < MAX_Y_ROTATION_ANGLE)
+            {
+                transform.Rotate(Vector3.up * hitSpeed * Time.deltaTime);
+            }      
         } 
         else if (this.leftkick)
         {
-            transform.Rotate(-Vector3.up * hitSpeed * Time.deltaTime);
+            float angle = (currentRotation.y > 180f) ? currentRotation.y - 360f : currentRotation.y;
+            if (angle >= -MAX_Y_ROTATION_ANGLE)
+            {
+                transform.Rotate(-Vector3.up * hitSpeed * Time.deltaTime);
+            }
         }
         else if (!this.rightKick || !this.leftkick)
         {
