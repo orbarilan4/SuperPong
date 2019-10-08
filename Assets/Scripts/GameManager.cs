@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
 
     public void Goal(int scorer)
     {
-        Debug.Log("Player" + scorer + " scores!");
+        //Debug.Log("Player" + scorer + " scores!");
 
         if (scorer == 1)
         {
@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
     private int AddScore(int playerScore)
     {
         int newScore = playerScore + 1;
-        Debug.Log("Score: " + newScore);
+        //Debug.Log("Score: " + newScore);
         return newScore;
     }
 
