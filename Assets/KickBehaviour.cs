@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class KickBehaviour : MonoBehaviour
 {
-    public Transform player;
     public float hitSpeed = 150f;
 
     private bool rightKick, leftkick;
@@ -39,15 +38,15 @@ public class KickBehaviour : MonoBehaviour
 
         if (this.rightKick) 
         {
-            player.Rotate(Vector3.up * hitSpeed * Time.deltaTime);
+            transform.Rotate(Vector3.up * hitSpeed * Time.deltaTime);
         } 
         else if (this.leftkick)
         {
-            player.Rotate(-Vector3.up * hitSpeed * Time.deltaTime);
+            transform.Rotate(-Vector3.up * hitSpeed * Time.deltaTime);
         }
         else if (!this.rightKick || !this.leftkick)
         {
-            player.rotation = Quaternion.identity;
+            transform.rotation = Quaternion.identity;
         }
     }
 }
