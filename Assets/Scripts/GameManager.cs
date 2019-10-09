@@ -12,9 +12,23 @@ public class GameManager : MonoBehaviour
 
     public void EndGame()
     {
+        bool endGame = false;
+        if (player1Score == scoreTarget)
+        {
+            Debug.Log("player 1 win !");
+            endGame = true;
+        }
+        if (player2Score == scoreTarget)
+        {
+            Debug.Log("player 2 win !");
+            endGame = true;
+        }
+        if (endGame == true)
+        {
+            SceneManager.LoadScene(0);
+        }
         //show UI of winner/loser
     }
-
     private void ResetBoard()
     {
         ball.position = new Vector3(0, 1, 0);
@@ -47,6 +61,7 @@ public class GameManager : MonoBehaviour
         }
 
         Invoke("ResetBoard", resetDelay);
+        EndGame();
     }
 
     private int AddScore(int playerScore)
