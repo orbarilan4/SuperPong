@@ -1,33 +1,35 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System.Threading;
 
 public class GameManager : MonoBehaviour
 {
     public float resetDelay = 1;
     public int player1Score, player2Score;
-    public int scoreTarget = 3;
+    public int scoreTarget;
+    public bool endGame = false;
     public Transform player1, player2, ball;
-    public TMP_Text score1, score2;
+    public TMP_Text score1, score2, winner, pressEsc;
 
     public void EndGame()
     {
-        bool endGame = false;
         if (player1Score == scoreTarget)
         {
-            Debug.Log("player 1 win !");
+            Debug.Log("player 1 wins !");
+            setWinnerText(1);
             endGame = true;
         }
         if (player2Score == scoreTarget)
         {
-            Debug.Log("player 2 win !");
+            Debug.Log("player 2 wins !");
+            setWinnerText(2);
             endGame = true;
         }
         if (endGame == true)
         {
-            SceneManager.LoadScene(0);
+            Time.timeScale = 0; // Pause game
         }
-        //show UI of winner/loser
     }
     private void ResetBoard()
     {
@@ -47,7 +49,7 @@ public class GameManager : MonoBehaviour
 
     public void Goal(int scorer)
     {
-        Debug.Log("Player" + scorer + " scores!");
+        Debug.Log("Player" + scorer + " score!");
 
         if (scorer == 1)
         {
@@ -59,15 +61,13 @@ public class GameManager : MonoBehaviour
             player2Score = AddScore(player2Score);
             setScoreText(scorer, player2Score);
         }
-
-        Invoke("ResetBoard", resetDelay);
         EndGame();
+        Invoke("ResetBoard", resetDelay);
     }
 
     private int AddScore(int playerScore)
     {
         int newScore = playerScore + 1;
-        Debug.Log("Score: " + newScore);
         return newScore;
     }
 
@@ -80,6 +80,19 @@ public class GameManager : MonoBehaviour
         else
         {
             score2.text = "Score: " + score.ToString();
+        }
+    }
+    private void setWinnerText(int player)
+    {
+        winner.text = "Player " + player + " Wins !";
+        pressEsc.text = "Press the Esc key for startup Menu";
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("Menu", LoadSceneMode.Single);
         }
     }
 }
