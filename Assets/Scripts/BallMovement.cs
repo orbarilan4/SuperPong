@@ -36,8 +36,56 @@ public class BallMovement : MonoBehaviour
 
         if (collision.gameObject.tag == "Paddle")
         {
+            if (collision.gameObject.name == "Player2")
+            {
+                float paddleX = collision.transform.position.x;
+                float ballX = this.transform.position.x;
+                float ballPosition = ballX - paddleX;
+
+                if (ballPosition < 0)
+                {
+                    //the ball is left to the paddle
+                    if (velocity.x > 0)
+                    {
+                        velocity.x *= -1;
+                    }
+                }
+                else if (ballPosition > 0)
+                {
+                    //the ball is right to the paddle
+                    if (velocity.x < 0)
+                    {
+                        velocity.x *= -1;
+                    }
+                }
+            }
+            else
+            {
+                float paddleX = collision.transform.position.x;
+                float ballX = this.transform.position.x;
+                float ballPosition = ballX - paddleX; //the position of the ball relative to the paddle center
+
+                if (ballPosition > 0)
+                {
+                    //the ball is left to the paddle
+                    if (velocity.x < 0)
+                    {
+                        velocity.x *= -1;
+                    }
+                }
+                else if (ballPosition < 0)
+                {
+                    //the ball is right to the paddle
+                    if (velocity.x > 0)
+                    {
+                        velocity.x *= -1;
+                    }
+                }
+            }
+
             velocity.z *= -1;
             rb.velocity = velocity;
+            //rb.velocity = new Vector3(velocity.x, 0, velocity.z) * speed;
         }
     }
 }
