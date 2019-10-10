@@ -6,9 +6,9 @@ TagManager:
   tags:
   - Wall
   - Ball
-  - player
   - Playground
   - Gate
+  - Paddle
   layers:
   - Default
   - TransparentFX
