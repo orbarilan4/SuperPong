@@ -6,34 +6,43 @@ using System;
 public class BallMovement : MonoBehaviour
 {
     public Rigidbody rb;
+    public float speed;
 
-    public float speed = 10f;
-    public int Sensitivity = 10;
-    public float MaxAngle = 90f;
-    // Start is called before the first frame update
     void Start()
     {
-        rb.velocity = Vector3.back * speed;
+        rb.velocity = new Vector3(1, 0, 1) * speed;
+        //rb.velocity = Vector3.back * speed;
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        rb.velocity = rb.velocity.normalized * 10f;
+        rb.velocity = rb.velocity.normalized * speed;
     }
     void OnCollisionEnter(Collision collision)
     {
+        Vector3 velocity = rb.velocity;
+
         if (collision.gameObject.tag == "Wall")
         {
-            Vector3 v = rb.velocity;
-            v.x *= -1f;
-            rb.velocity = v;
+            velocity.x *= -1;
+            rb.velocity = velocity;
         }
-        if (collision.gameObject.tag == "Player")
+
+        if (collision.gameObject.tag == "Paddle")
         {
-            Vector3 v = rb.velocity;
-            v.z *= -1f;
-            rb.velocity = v;
+            //float distance1 = this.transform.position.z - GameObject.Find("Player1").transform.position.z;
+            //float distance2 = this.transform.position.z - GameObject.Find("Player2").transform.position.z;
+
+            //Debug.Log(distance1);
+            //Debug.Log(distance2);
+
+            // if(collision.gameObject.name=="Player1"){
+
+            //     rb.velocity=new Vector3()
+            // }
+
+            velocity.z *= -1;
+            rb.velocity = velocity;
         }
     }
 }
