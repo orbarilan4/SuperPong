@@ -947,7 +947,7 @@ MonoBehaviour:
   resetDelay: 1
   player1Score: 0
   player2Score: 0
-  scoreTarget: 2
+  scoreTarget: 3
   endGame: 0
   player1: {fileID: 978664434}
   player2: {fileID: 1499114959}
@@ -1643,7 +1643,6 @@ GameObject:
   - component: {fileID: 1617589536}
   - component: {fileID: 1617589538}
   - component: {fileID: 1617589537}
-  - component: {fileID: 1617589539}
   m_Layer: 5
   m_Name: Winner
   m_TagString: Untagged
@@ -1790,18 +1789,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1617589535}
   m_CullTransparentMesh: 0
---- !u!114 &1617589539
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1617589535}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aee72dde1d743fe408d973f1d1279fce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1748765926
 GameObject:
   m_ObjectHideFlags: 0
@@ -1969,7 +1956,6 @@ GameObject:
   - component: {fileID: 1909438255}
   - component: {fileID: 1909438257}
   - component: {fileID: 1909438254}
-  - component: {fileID: 1909438256}
   m_Layer: 5
   m_Name: PressEsc
   m_TagString: Untagged
@@ -2108,18 +2094,6 @@ RectTransform:
   m_AnchoredPosition: {x: 230, y: 300}
   m_SizeDelta: {x: 795.401, y: 264}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1909438256
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1909438253}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aee72dde1d743fe408d973f1d1279fce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!222 &1909438257
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2250,6 +2224,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 2092283586}
-  direction: {x: 0, y: 0, z: 0}
   speed: 10
-  radius: 0
