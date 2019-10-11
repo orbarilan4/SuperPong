@@ -15,8 +15,8 @@ public class PlayerMovement : MonoBehaviour
         this.playerRight = false;
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
+    // 'FixedUpdate' makes bugs to i changed it to 'Update'
+    void Update()
     {
         if (Input.GetKeyDown(leftKeyCode))
         {
@@ -26,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
         {
             this.playerLeft = false;
         }
+        
         if (Input.GetKeyDown(rightKeyCode))
         {
             this.playerRight = true;
