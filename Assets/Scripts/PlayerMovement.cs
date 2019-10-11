@@ -4,74 +4,44 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public Transform player1, player2;
-    public bool player1Left, player1Right, player2Left, player2Right;
-
+    private bool playerLeft, playerRight;
     public float speed = 10f;
-
+    public KeyCode leftKeyCode, rightKeyCode;
     // Start is called before the first frame update
     void Start()
     {
         Debug.Log("Start");
-        player1Left = false;
-        player1Right = false;
-        player2Left = false;
-        player2Right = false;
+        this.playerLeft = false;
+        this.playerRight = false;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        if (Input.GetKeyDown(leftKeyCode))
         {
-            player1Left = true;
+            this.playerLeft = true;
         }
-        if (Input.GetKeyUp(KeyCode.LeftArrow))
+        if (Input.GetKeyUp(leftKeyCode))
         {
-            player1Left = false;
+            this.playerLeft = false;
         }
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKeyDown(rightKeyCode))
         {
-            player1Right = true;
+            this.playerRight = true;
         }
-        if (Input.GetKeyUp(KeyCode.RightArrow))
+        if (Input.GetKeyUp(rightKeyCode))
         {
-            player1Right = false;
-        }
-
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            player2Left = true;
-        }
-        if (Input.GetKeyUp(KeyCode.A))
-        {
-            player2Left = false;
-        }
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            player2Right = true;
-        }
-        if (Input.GetKeyUp(KeyCode.D))
-        {
-            player2Right = false;
+            this.playerRight = false;
         }
 
-
-        if (player1Left)
+        if (this.playerLeft)
         {
-            player1.Translate(-speed * Time.deltaTime, 0, 0);
+            transform.Translate(-speed * Time.deltaTime, 0, 0);
         }
-        if (player1Right)
+        if (this.playerRight)
         {
-            player1.Translate(speed * Time.deltaTime, 0, 0);
-        }
-        if (player2Left)
-        {
-            player2.Translate(-speed * Time.deltaTime, 0, 0);
-        }
-        if (player2Right)
-        {
-            player2.Translate(speed * Time.deltaTime, 0, 0);
+            transform.Translate(speed * Time.deltaTime, 0, 0);
         }
     }
 }
