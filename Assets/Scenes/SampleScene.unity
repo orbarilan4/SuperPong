@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -947,7 +947,7 @@ MonoBehaviour:
   resetDelay: 1
   player1Score: 0
   player2Score: 0
-  scoreTarget: 2
+  scoreTarget: 3
   endGame: 0
   player1: {fileID: 978664434}
   player2: {fileID: 1499114959}
@@ -1093,7 +1093,7 @@ GameObject:
   - component: {fileID: 978664430}
   m_Layer: 0
   m_Name: Player1
-  m_TagString: player
+  m_TagString: Paddle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1415,7 +1415,7 @@ GameObject:
   - component: {fileID: 1499114960}
   m_Layer: 0
   m_Name: Player2
-  m_TagString: player
+  m_TagString: Paddle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1687,7 +1687,6 @@ GameObject:
   - component: {fileID: 1617589536}
   - component: {fileID: 1617589538}
   - component: {fileID: 1617589537}
-  - component: {fileID: 1617589539}
   m_Layer: 5
   m_Name: Winner
   m_TagString: Untagged
@@ -1834,18 +1833,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1617589535}
   m_CullTransparentMesh: 0
---- !u!114 &1617589539
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1617589535}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aee72dde1d743fe408d973f1d1279fce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1748765926
 GameObject:
   m_ObjectHideFlags: 0
@@ -2013,7 +2000,6 @@ GameObject:
   - component: {fileID: 1909438255}
   - component: {fileID: 1909438257}
   - component: {fileID: 1909438254}
-  - component: {fileID: 1909438256}
   m_Layer: 5
   m_Name: PressEsc
   m_TagString: Untagged
@@ -2152,18 +2138,6 @@ RectTransform:
   m_AnchoredPosition: {x: 230, y: 300}
   m_SizeDelta: {x: 795.401, y: 264}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1909438256
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1909438253}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aee72dde1d743fe408d973f1d1279fce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!222 &1909438257
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2200,7 +2174,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2092283581}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 053ba816f7b54d84eb37ceaa98b499c9, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -2279,8 +2253,8 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 4
-  m_CollisionDetection: 0
+  m_Constraints: 116
+  m_CollisionDetection: 3
 --- !u!114 &2092283587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2295,5 +2269,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 2092283586}
   speed: 10
-  Sensitivity: 10
-  MaxAngle: 90
