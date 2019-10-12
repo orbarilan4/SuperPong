@@ -19,6 +19,7 @@ public class GoalTrigger : MonoBehaviour
                 //the scorer is player1
                 gameManager.Goal(1);
             }
+            FindObjectOfType<AudioManager>().Play("Goal");
         }
     }
 }

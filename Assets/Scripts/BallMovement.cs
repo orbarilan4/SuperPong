@@ -36,7 +36,6 @@ public class BallMovement : MonoBehaviour
 
         if (collision.gameObject.tag == "Paddle")
         {
-            FindObjectOfType<AudioManager>().Play("Ball Hit");
             if (collision.gameObject.name == "Player2")
             {
                 float paddleX = collision.transform.position.x;
@@ -87,6 +86,7 @@ public class BallMovement : MonoBehaviour
             velocity.z *= -1;
             rb.velocity = velocity;
             //rb.velocity = new Vector3(velocity.x, 0, velocity.z) * speed;
+            FindObjectOfType<AudioManager>().Play("Ball Hit");
         }
     }
 }

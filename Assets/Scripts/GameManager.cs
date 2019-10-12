@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
         if (endGame == true)
         {
             Time.timeScale = 0; // Pause game
+            FindObjectOfType<AudioManager>().Play("GameOver");
         }
     }
     private void ResetBoard()
@@ -36,7 +37,7 @@ public class GameManager : MonoBehaviour
         ball.position = new Vector3(0, 1, 0);
         player1.position = new Vector3(0, 1, 8.5f);
         player2.position = new Vector3(0, 1, -8.5f);
-
+        FindObjectOfType<AudioManager>().Play("Applause");
         //todo: reset ball movement, for now it moves the same direction as before
     }
 
