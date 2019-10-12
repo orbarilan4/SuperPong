@@ -36,6 +36,7 @@ public class BallMovement : MonoBehaviour
 
         if (collision.gameObject.tag == "Paddle")
         {
+            FindObjectOfType<AudioManager>().Play("Ball Hit");
             if (collision.gameObject.name == "Player2")
             {
                 float paddleX = collision.transform.position.x;
