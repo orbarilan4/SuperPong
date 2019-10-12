@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private bool playerLeft, playerRight;
+    private bool playerLeft, playerRight, isMoveEnabled;
     public float speed = 10f;
     public KeyCode leftKeyCode, rightKeyCode;
     // Start is called before the first frame update
@@ -13,6 +13,17 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log("Start");
         this.playerLeft = false;
         this.playerRight = false;
+        this.isMoveEnabled = true;
+    }
+
+    public void enableMove()
+    {
+        this.isMoveEnabled = true;
+    }
+
+    public void disableMove()
+    {
+        this.isMoveEnabled = false;
     }
 
     // 'FixedUpdate' makes bugs to i changed it to 'Update'
@@ -36,11 +47,11 @@ public class PlayerMovement : MonoBehaviour
             this.playerRight = false;
         }
 
-        if (this.playerLeft)
+        if (this.playerLeft && isMoveEnabled)
         {
             transform.Translate(-speed * Time.deltaTime, 0, 0);
         }
-        if (this.playerRight)
+        if (this.playerRight && isMoveEnabled)
         {
             transform.Translate(speed * Time.deltaTime, 0, 0);
         }

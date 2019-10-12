@@ -9,12 +9,15 @@ public class KickBehaviour : MonoBehaviour
 
     private bool rightKick, leftkick;
 
+    private PlayerMovement playerMovement;
+
     public KeyCode leftKickCode, rightKickCode;
     // Start is called before the first frame update
     void Start()
     {
         this.rightKick = false;
         this.leftkick = false;
+        this.playerMovement = gameObject.GetComponent<PlayerMovement>();
     }
 
     // Update is called once per frame
@@ -23,18 +26,22 @@ public class KickBehaviour : MonoBehaviour
         if (Input.GetKeyDown(rightKickCode) && !this.rightKick)
         {
             this.rightKick = true;
+            this.playerMovement.disableMove();
         } 
         if (Input.GetKeyUp(rightKickCode))
         {
             this.rightKick = false;
+            this.playerMovement.enableMove();
         }
         if (Input.GetKeyDown(leftKickCode) && !this.leftkick)
         {
             this.leftkick = true;
+            this.playerMovement.disableMove();
         }
         if (Input.GetKeyUp(leftKickCode))
         {
             this.leftkick = false;
+            this.playerMovement.enableMove();
         }
 
         Vector3 currentRotation = transform.localRotation.eulerAngles; 
