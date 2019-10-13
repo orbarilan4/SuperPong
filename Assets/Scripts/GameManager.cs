@@ -8,9 +8,11 @@ public class GameManager : MonoBehaviour
     public float resetDelay = 1;
     public int player1Score, player2Score;
     public int scoreTarget;
-    public bool endGame = false;
+    public bool endGame = false, isShowing = false;
     public Transform player1, player2, ball;
     public TMP_Text score1, score2, winner, pressEsc;
+    public KeyCode menuKeyCode, controlsKeyCode;
+    public GameObject controlsScreen, backgroundScreen;
 
     public void EndGame()
     {
@@ -91,9 +93,34 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(menuKeyCode))
         {
             SceneManager.LoadScene("Menu", LoadSceneMode.Single);
         }
+        if (Input.GetKeyDown(controlsKeyCode))
+        {
+            isShowing = !isShowing;
+            backgroundScreen.SetActive(isShowing);
+            controlsScreen.SetActive(isShowing);
+            if (isShowing)
+            {
+                Pause();
+            }
+            else
+            {
+                Resume();
+            }
+
+        }
+    }
+
+    void Pause()
+    {
+        Time.timeScale = 0f;
+    }
+
+    void Resume()
+    {
+        Time.timeScale = 1f;
     }
 }
