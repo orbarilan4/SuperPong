@@ -13,18 +13,28 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         Time.timeScale = 1;
-        FindObjectOfType<AudioManager>().Play("MenuButton");
+        PlayMenuSound();
     }
 
     public void ModesGame()
     {
-        FindObjectOfType<AudioManager>().Play("MenuButton");
+        PlayMenuSound();
     }
 
-    public void QuitGame()
+    public void ControlsGame()
     {
-        Debug.Log("Quit");
+        PlayMenuSound();
+    }
+
+    // public void QuitGame()
+    // {
+    //     Debug.Log("Quit");
+    //     FindObjectOfType<AudioManager>().Play("MenuButton");
+    //     Application.Quit();
+    // }
+
+    public void PlayMenuSound()
+    {
         FindObjectOfType<AudioManager>().Play("MenuButton");
-        Application.Quit();
     }
 }
