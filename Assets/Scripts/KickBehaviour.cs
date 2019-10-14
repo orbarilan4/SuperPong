@@ -20,6 +20,11 @@ public class KickBehaviour : MonoBehaviour
         this.playerMovement = gameObject.GetComponent<PlayerMovement>();
     }
 
+    public bool isKicked()
+    {
+        return this.rightKick || this.leftkick;
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
