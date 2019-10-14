@@ -6,6 +6,9 @@ public class BallMovement : MonoBehaviour
 {
     public Rigidbody rb;
     public float speed;
+    private const float DISCOUNT_FACTOR = 0.85f;
+    private const float HIT_FACTOR = 10f;
+    private float originalSpeed;
 	public int lastCollision;
 	
     void Start()
@@ -20,24 +23,41 @@ public class BallMovement : MonoBehaviour
         {
             rb.velocity = new Vector3(-0.5f, 0, -0.5f) * speed;
         }
+
+        this.originalSpeed = this.speed;
     }
 
     void FixedUpdate()
     {
-        rb.velocity = rb.velocity.normalized * speed;
+        this.speed = Mathf.Max(this.originalSpeed, this.speed * DISCOUNT_FACTOR);
+        rb.velocity = rb.velocity.normalized * this.speed;
     }
     void OnCollisionEnter(Collision collision)
     {
         Vector3 velocity = rb.velocity;
 
+        Debug.Log(this.speed);
+
         if (collision.gameObject.tag == "Wall")
         {
             velocity.x *= -1;
+            velocity.z += 0.009f; 
             rb.velocity = velocity;
         }
 
         if (collision.gameObject.tag == "Paddle")
         {
+            bool isKicked = collision.transform.GetComponent<KickBehaviour>().isKicked();
+            if (isKicked)
+            {
+                Vector3 direction = (collision.transform.position - transform.position).normalized;
+                direction.y = 0;
+                float hitSpeed = this.speed * HIT_FACTOR;
+                rb.AddForce(-direction * hitSpeed, ForceMode.Impulse);
+                this.speed = hitSpeed;
+                return;
+            }
+
             if (collision.gameObject.name == "Player2")
             {
                 float paddleX = collision.transform.position.x;
