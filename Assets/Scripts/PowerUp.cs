@@ -1,23 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Threading;
 
 public class PowerUp : MonoBehaviour
 {
-	private float nextActionTime = Time.time + Random.Range(5.0f,10.0f);
+	private float nextActionTime = 0.0f;
 	private bool isPowerUpOnStage = false;
 	public GameObject pickupEffect;
 	public BallMovement ball;
 	
 	void Update()
 	{
-		if(isPowerUpOnStage == false && Time.time > nextActionTime)
+		Vector3 position = this.transform.position;
+		if(isPowerUpOnStage == false && nextActionTime < Time.time)
 		{
-			transform.position = new Vector3(Random.Range(-5.0f, 5.75f),0.5f, Random.Range(-5.0f, 5.25f));
+			this.transform.position = new Vector3(Random.Range(-5.0f, 5.75f),0.5f, Random.Range(-5.0f, 5.25f));
 			isPowerUpOnStage = true;
 		}
 		// PowerUp Rotate animation
-		transform.Rotate(0,50*Time.deltaTime,0); 
+		transform.Rotate(0, 50 * Time.deltaTime, 0); 
 	}
 	
     void OnTriggerEnter(Collider collider)
@@ -31,15 +33,14 @@ public class PowerUp : MonoBehaviour
 	void Pickup(Collider collider)
 	{
 		// Create and destroy PowerUp effect
-		float period = Random.Range(15f, 30f);
 		GameObject effect = Instantiate(pickupEffect, transform.position, transform.rotation) as GameObject;
 		Destroy(effect, 0.5f);
 	
 		// Get rid of the PowerUp for a few seconds 
-		transform.position = new Vector3(5000f,5000f,5000f);
+		transform.position = new Vector3(5000f, 5000f, 5000f);
 		isPowerUpOnStage = false;
-		nextActionTime = period + Time.time;
-		
+		nextActionTime = Random.Range(30f,100f) + Time.time;
+
 		Vector3 position = collider.transform.position;
 		if(this.gameObject.name == "Big")
 		{
@@ -53,7 +54,25 @@ public class PowerUp : MonoBehaviour
 		}
 		if(this.gameObject.name == "Fast")
 		{
-			ball.speed = 15;
+			if(ball.speed == 10)
+			{
+				ball.speed = 15;
+			}
+			if(ball.speed == 5)
+			{
+				ball.speed = 10;
+			}
 		}
+		/*if(this.gameObject.name == "Slow")
+		{
+			if(ball.speed == 15)
+			{
+				ball.speed = 10;
+			}
+			if(ball.speed == 10)
+			{
+				ball.speed = 5;
+			}
+		}*/
 	}
 }
