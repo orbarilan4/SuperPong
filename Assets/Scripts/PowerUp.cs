@@ -5,15 +5,15 @@ using System.Threading;
 
 public class PowerUp : MonoBehaviour
 {
-	private float nextActionTime = 0.0f;
+	private float nextPowerUpTime = 0.0f;
 	private bool isPowerUpOnStage = false;
 	public GameObject pickupEffect;
 	public BallMovement ball;
-	
+		
 	void Update()
 	{
 		Vector3 position = this.transform.position;
-		if(isPowerUpOnStage == false && nextActionTime < Time.time)
+		if(isPowerUpOnStage == false && nextPowerUpTime < Time.time)
 		{
 			this.transform.position = new Vector3(Random.Range(-5.0f, 5.75f),0.5f, Random.Range(-5.0f, 5.25f));
 			isPowerUpOnStage = true;
@@ -39,20 +39,37 @@ public class PowerUp : MonoBehaviour
 		// Get rid of the PowerUp for a few seconds 
 		transform.position = new Vector3(5000f, 5000f, 5000f);
 		isPowerUpOnStage = false;
-		nextActionTime = Random.Range(30f,100f) + Time.time;
+		nextPowerUpTime = Random.Range(30f,100f) + Time.time;
 
 		Vector3 position = collider.transform.position;
-		if(this.gameObject.name == "Big")
+		if(this.gameObject.name == "Elephant")
 		{
-			collider.transform.localScale = new Vector3(2f,2f,2f);
-			collider.transform.position = new Vector3(position.x,1.5f,position.z);
+			if(collider.transform.localScale.x == 0.5f)
+			{
+				collider.transform.localScale = new Vector3(1f,1f,1f);
+				collider.transform.position = new Vector3(position.x,1f,position.z);
+			}
+			else
+			{
+				collider.transform.localScale = new Vector3(2f,2f,2f);
+				collider.transform.position = new Vector3(position.x,1.5f,position.z);
+			}
 		}
-		if(this.gameObject.name == "Small")
+		if(this.gameObject.name == "Mouse")
 		{
-			collider.transform.localScale = new Vector3(0.5f,0.5f,0.5f);
-			collider.transform.position = new Vector3(position.x,0.75f,position.z);
+			
+			if(collider.transform.localScale.x == 2f)
+			{
+				collider.transform.localScale = new Vector3(1f,1f,1f);
+				collider.transform.position = new Vector3(position.x,1f,position.z);
+			}
+			else
+			{
+				collider.transform.localScale = new Vector3(0.5f,0.5f,0.5f);
+				collider.transform.position = new Vector3(position.x,0.75f,position.z);
+			}
 		}
-		if(this.gameObject.name == "Fast")
+		if(this.gameObject.name == "Rabbit")
 		{
 			if(ball.speed == 10)
 			{
@@ -63,7 +80,7 @@ public class PowerUp : MonoBehaviour
 				ball.speed = 10;
 			}
 		}
-		/*if(this.gameObject.name == "Slow")
+		if(this.gameObject.name == "Turtle")
 		{
 			if(ball.speed == 15)
 			{
@@ -73,6 +90,6 @@ public class PowerUp : MonoBehaviour
 			{
 				ball.speed = 5;
 			}
-		}*/
+		}
 	}
 }
