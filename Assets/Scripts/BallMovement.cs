@@ -6,9 +6,11 @@ public class BallMovement : MonoBehaviour
 {
     public Rigidbody rb;
     public float speed;
-
+	public int lastCollision;
+	
     void Start()
     {
+		lastCollision = 0;
         int rnd = Random.Range(0, 2);
         if (rnd == 0)
         {
@@ -41,7 +43,8 @@ public class BallMovement : MonoBehaviour
                 float paddleX = collision.transform.position.x;
                 float ballX = this.transform.position.x;
                 float ballPosition = ballX - paddleX; //the position of the ball relative to the paddle center
-
+				lastCollision = 2;
+				
                 if (ballPosition < 0)
                 {
                     //the ball is left to the paddle
@@ -64,7 +67,8 @@ public class BallMovement : MonoBehaviour
                 float paddleX = collision.transform.position.x;
                 float ballX = this.transform.position.x;
                 float ballPosition = ballX - paddleX; //the position of the ball relative to the paddle center
-
+				lastCollision = 1;
+				
                 if (ballPosition > 0)
                 {
                     //the ball is left to the paddle

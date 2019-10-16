@@ -9,13 +9,18 @@ public class PowerUp : MonoBehaviour
 	private bool isPowerUpOnStage = false;
 	public GameObject pickupEffect;
 	public BallMovement ball;
-		
+	public Transform player1, player2;
+	
+	void Start()
+	{
+		nextPowerUpTime = Random.Range(5f,30f); 
+	}
+
 	void Update()
 	{
-		Vector3 position = this.transform.position;
 		if(isPowerUpOnStage == false && nextPowerUpTime < Time.time)
 		{
-			this.transform.position = new Vector3(Random.Range(-5.0f, 5.75f),0.5f, Random.Range(-5.0f, 5.25f));
+			this.transform.position = new Vector3(Random.Range(-5.0f, 5.75f),transform.position.y, Random.Range(-5.0f, 5.25f));
 			isPowerUpOnStage = true;
 		}
 		// PowerUp Rotate animation
@@ -37,7 +42,7 @@ public class PowerUp : MonoBehaviour
 		Destroy(effect, 0.5f);
 	
 		// Get rid of the PowerUp for a few seconds 
-		transform.position = new Vector3(5000f, 5000f, 5000f);
+		transform.position = new Vector3(5000f, transform.position.y, 5000f);
 		isPowerUpOnStage = false;
 		nextPowerUpTime = Random.Range(30f,100f) + Time.time;
 
@@ -89,6 +94,17 @@ public class PowerUp : MonoBehaviour
 			if(ball.speed == 10)
 			{
 				ball.speed = 5;
+			}
+		}
+		if(this.gameObject.name == "Giraffe")
+		{
+			if(ball.lastCollision == 1)
+			{
+				player1.localScale = new Vector3(5f, 1f, 1f);
+			}
+			if(ball.lastCollision == 2)
+			{
+				player2.localScale = new Vector3(5f, 1f, 1f);
 			}
 		}
 	}

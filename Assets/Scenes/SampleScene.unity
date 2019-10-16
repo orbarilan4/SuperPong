@@ -771,7 +771,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 97ec924e4a670fe4e8002eccd686f372, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 29.45
+      value: 5000
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 97ec924e4a670fe4e8002eccd686f372, type: 3}
       propertyPath: m_LocalPosition.y
@@ -799,7 +799,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 97ec924e4a670fe4e8002eccd686f372, type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 97ec924e4a670fe4e8002eccd686f372, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1810,7 +1810,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 4fb28b112355a734c80605cab820b6c8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 31.6
+      value: 5000
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 4fb28b112355a734c80605cab820b6c8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2102,6 +2102,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickupEffect: {fileID: 100006, guid: 1b0efe600cd9bcd48ae21ef3dffffff8, type: 3}
   ball: {fileID: 2092283587}
+  player1: {fileID: 0}
+  player2: {fileID: 0}
 --- !u!65 &1066473695
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2115,6 +2117,41 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3, y: 5, z: 4.5}
   m_Center: {x: 0, y: 2, z: 0}
+--- !u!1 &1258611923 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100002, guid: fdc471488b96e7b44a795e9564e50163,
+    type: 3}
+  m_PrefabInstance: {fileID: 1830328265}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1258611925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1258611923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45420f6c46db8214c85ca32ed3f695a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupEffect: {fileID: 100014, guid: f99757c3449090646b2e54da3138946a, type: 3}
+  ball: {fileID: 2092283587}
+  player1: {fileID: 978664434}
+  player2: {fileID: 1499114959}
+--- !u!65 &1258611926
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1258611923}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 50, y: 300, z: 150}
+  m_Center: {x: 0, y: -35, z: -50}
 --- !u!1 &1298973260
 GameObject:
   m_ObjectHideFlags: 0
@@ -2395,6 +2432,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickupEffect: {fileID: 100008, guid: f3613b78354895b469b7da1f0a90e686, type: 3}
   ball: {fileID: 2092283587}
+  player1: {fileID: 0}
+  player2: {fileID: 0}
 --- !u!1 &1492212520
 GameObject:
   m_ObjectHideFlags: 0
@@ -3293,6 +3332,79 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1748765926}
   m_CullTransparentMesh: 0
+--- !u!1001 &1830328265
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 100002, guid: fdc471488b96e7b44a795e9564e50163, type: 3}
+      propertyPath: m_Name
+      value: Giraffe
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: fdc471488b96e7b44a795e9564e50163, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4998.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: fdc471488b96e7b44a795e9564e50163, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: fdc471488b96e7b44a795e9564e50163, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: fdc471488b96e7b44a795e9564e50163, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: fdc471488b96e7b44a795e9564e50163, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: fdc471488b96e7b44a795e9564e50163, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: fdc471488b96e7b44a795e9564e50163, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: fdc471488b96e7b44a795e9564e50163, type: 3}
+      propertyPath: m_RootOrder
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: fdc471488b96e7b44a795e9564e50163, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: fdc471488b96e7b44a795e9564e50163, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: fdc471488b96e7b44a795e9564e50163, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: fdc471488b96e7b44a795e9564e50163, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.009
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: fdc471488b96e7b44a795e9564e50163, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.009
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: fdc471488b96e7b44a795e9564e50163, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.009
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: fdc471488b96e7b44a795e9564e50163, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0288aac4c0863eb45b1757aee06cd013, type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fdc471488b96e7b44a795e9564e50163, type: 3}
 --- !u!1001 &1867271071
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3306,7 +3418,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ac6f5c64f6c839e48a2f5f4f5fb67a01, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 33.65
+      value: 5000
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ac6f5c64f6c839e48a2f5f4f5fb67a01, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3334,7 +3446,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ac6f5c64f6c839e48a2f5f4f5fb67a01, type: 3}
       propertyPath: m_RootOrder
-      value: 18
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ac6f5c64f6c839e48a2f5f4f5fb67a01, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3399,6 +3511,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickupEffect: {fileID: 100016, guid: 3f1d919251d33ab45a23dc83a945d1da, type: 3}
   ball: {fileID: 2092283587}
+  player1: {fileID: 0}
+  player2: {fileID: 0}
 --- !u!1 &1909438253
 GameObject:
   m_ObjectHideFlags: 0
@@ -3677,7 +3791,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 0ab9420f2cf8a6e4f9f4bdcabaad9b40, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 38.2
+      value: 5000
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 0ab9420f2cf8a6e4f9f4bdcabaad9b40, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3705,7 +3819,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 0ab9420f2cf8a6e4f9f4bdcabaad9b40, type: 3}
       propertyPath: m_RootOrder
-      value: 17
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 0ab9420f2cf8a6e4f9f4bdcabaad9b40, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3770,6 +3884,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickupEffect: {fileID: 100006, guid: 8b940ede2c20ec44ba870a2cdd277051, type: 3}
   ball: {fileID: 2092283587}
+  player1: {fileID: 0}
+  player2: {fileID: 0}
 --- !u!1 &2092283581
 GameObject:
   m_ObjectHideFlags: 0
@@ -3893,6 +4009,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 2092283586}
   speed: 10
+  lastCollision: 0
 --- !u!1 &2095887698
 GameObject:
   m_ObjectHideFlags: 0

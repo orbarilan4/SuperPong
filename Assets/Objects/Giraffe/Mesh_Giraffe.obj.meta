@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: 02cbf1e866aea6049ab670524121614c
+guid: fdc471488b96e7b44a795e9564e50163
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: default
+    100000: Geo_Giraffe
     100002: //RootNode
-    400000: default
+    400000: Geo_Giraffe
     400002: //RootNode
-    2100000: defaultMat
-    2300000: default
-    3300000: default
-    4300000: default
+    2100000: Geo_GiraffeMat
+    2300000: Geo_Giraffe
+    3300000: Geo_Giraffe
+    4300000: Geo_Giraffe
   externalObjects: {}
   materials:
     importMaterials: 1
