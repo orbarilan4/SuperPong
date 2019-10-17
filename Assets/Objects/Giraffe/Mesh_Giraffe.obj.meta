@@ -8,6 +8,7 @@ ModelImporter:
     400000: Geo_Giraffe
     400002: //RootNode
     2100000: Geo_GiraffeMat
+    2100002: lambert2SG
     2300000: Geo_Giraffe
     3300000: Geo_Giraffe
     4300000: Geo_Giraffe
