@@ -12,12 +12,13 @@ public class GameManager : MonoBehaviour
     public Transform player1, player2, ball;
     public TMP_Text score1, score2, winner, pressEsc;
     public KeyCode menuKeyCode, instructionsKeyCode, pauseKeyCode;
-    public GameObject backgroundScreen, instructionsScreen, pauseScreen ;
-	public BallMovement ballMovement;
+    public GameObject backgroundScreen, instructionsScreen, pauseScreen;
+    public BallMovement ballMovement;
 
-     void Start()
+    void Start()
     {
         Resume();
+        FindObjectOfType<AudioManager>().Play("Intro");
     }
 
     void Update()
@@ -41,8 +42,8 @@ public class GameManager : MonoBehaviour
             }
         }
 
-         if (Input.GetKeyDown(pauseKeyCode))
-         {
+        if (Input.GetKeyDown(pauseKeyCode))
+        {
             isShowingPause = !isShowingPause;
             pauseScreen.SetActive(isShowingPause);
             if (isShowingPause)
@@ -53,9 +54,9 @@ public class GameManager : MonoBehaviour
             {
                 Resume();
             }
-         }
+        }
     }
-	
+
     public void EndGame()
     {
         if (player1Score == scoreTarget)
@@ -72,20 +73,21 @@ public class GameManager : MonoBehaviour
         }
         if (endGame == true)
         {
-            Time.timeScale = 0; // Pause game
+            Pause(); // Pause game
             FindObjectOfType<AudioManager>().Play("GameOver");
+            FindObjectOfType<AudioManager>().Stop("Intro");
         }
     }
 
     private void ResetBoard()
     {
-		ballMovement.speed = 10;
-		ball.localScale = new Vector3(1, 1, 1);
+        ballMovement.speed = 10;
+        ball.localScale = new Vector3(1, 1, 1);
         ball.position = new Vector3(0, 1, 0);
         player1.position = new Vector3(0, 1, 8.5f);
         player2.position = new Vector3(0, 1, -8.5f);
-		player1.localScale = new Vector3(3f, 1f, 1f);
-		player2.localScale = new Vector3(3f, 1f, 1f);
+        player1.localScale = new Vector3(3f, 1f, 1f);
+        player2.localScale = new Vector3(3f, 1f, 1f);
         FindObjectOfType<AudioManager>().Play("Applause");
         //todo: reset ball movement, for now it moves the same direction as before
     }
