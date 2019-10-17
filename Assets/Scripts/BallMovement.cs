@@ -36,6 +36,8 @@ public class BallMovement : MonoBehaviour
     {
         Vector3 velocity = rb.velocity;
 
+        Debug.Log(this.speed);
+
         if (collision.gameObject.tag == "Wall")
         {
             velocity.x *= -1;
