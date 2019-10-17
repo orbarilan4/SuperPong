@@ -8,11 +8,11 @@ public class GameManager : MonoBehaviour
     public float resetDelay = 1;
     public int player1Score, player2Score;
     public int scoreTarget;
-    public bool endGame = false, isShowingControls = false, isShowingPause = false;
+    public bool endGame = false, isShowingInstructions = false, isShowingPause = false;
     public Transform player1, player2, ball;
     public TMP_Text score1, score2, winner, pressEsc;
-    public KeyCode menuKeyCode, controlsKeyCode, pauseKeyCode;
-    public GameObject backgroundScreen, controlsScreen, pauseScreen ;
+    public KeyCode menuKeyCode, instructionsKeyCode, pauseKeyCode;
+    public GameObject backgroundScreen, instructionsScreen, pauseScreen ;
 	public BallMovement ballMovement;
 
      void Start()
@@ -26,12 +26,12 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene("Menu", LoadSceneMode.Single);
         }
-        if (Input.GetKeyDown(controlsKeyCode))
+        if (Input.GetKeyDown(instructionsKeyCode))
         {
-            isShowingControls = !isShowingControls;
-            backgroundScreen.SetActive(isShowingControls);
-            controlsScreen.SetActive(isShowingControls);
-            if (isShowingControls)
+            isShowingInstructions = !isShowingInstructions;
+            backgroundScreen.SetActive(isShowingInstructions);
+            instructionsScreen.SetActive(isShowingInstructions);
+            if (isShowingInstructions)
             {
                 Pause();
             }
