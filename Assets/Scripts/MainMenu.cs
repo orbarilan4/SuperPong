@@ -21,7 +21,7 @@ public class MainMenu : MonoBehaviour
         PlayMenuSound();
     }
 
-    public void ControlsGame()
+    public void InstructionsGame()
     {
         PlayMenuSound();
     }
