@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     public Transform player1, player2, ball;
     public TMP_Text score1, score2, winner, pressEsc;
     public KeyCode menuKeyCode, instructionsKeyCode, pauseKeyCode;
-    public GameObject backgroundScreen, instructionsScreen, pauseScreen;
+    public GameObject backgroundScreen, instructionsScreen, pauseScreen, winnerText, pressEscText;
     public BallMovement ballMovement;
 
     void Start()
@@ -136,6 +136,8 @@ public class GameManager : MonoBehaviour
     }
     private void setWinnerText(int player)
     {
+        winnerText.SetActive(true);
+        pressEscText.SetActive(true);
         winner.text = "Player " + player + " Wins !";
         pressEsc.text = "Press the Esc key for startup Menu";
     }
