@@ -7,7 +7,7 @@ public class BallMovement : MonoBehaviour
     public Rigidbody rb;
     public float speed;
     private const float DISCOUNT_FACTOR = 0.85f;
-    private const float HIT_FACTOR = 10f;
+    private const float HIT_FACTOR = 5f;
     private float originalSpeed;
 	public int lastCollision;
 	
@@ -35,8 +35,6 @@ public class BallMovement : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         Vector3 velocity = rb.velocity;
-
-        Debug.Log(this.speed);
 
         if (collision.gameObject.tag == "Wall")
         {
