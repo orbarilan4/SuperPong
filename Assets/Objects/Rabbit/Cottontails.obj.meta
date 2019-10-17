@@ -8,6 +8,7 @@ ModelImporter:
     400000: //RootNode
     400002: Cottontails_mesh
     2100000: Cottontails_meshMat
+    2100002: Cottontails_mat
     2300000: Cottontails_mesh
     3300000: Cottontails_mesh
     4300000: Cottontails_mesh

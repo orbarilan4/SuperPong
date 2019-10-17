@@ -8,12 +8,53 @@ public class GameManager : MonoBehaviour
     public float resetDelay = 1;
     public int player1Score, player2Score;
     public int scoreTarget;
-    public bool endGame = false, isShowing = false;
+    public bool endGame = false, isShowingControls = false, isShowingPause = false;
     public Transform player1, player2, ball;
     public TMP_Text score1, score2, winner, pressEsc;
-    public KeyCode menuKeyCode, controlsKeyCode;
-    public GameObject controlsScreen, backgroundScreen;
+    public KeyCode menuKeyCode, controlsKeyCode, pauseKeyCode;
+    public GameObject backgroundScreen, controlsScreen, pauseScreen ;
 	public BallMovement ballMovement;
+
+     void Start()
+    {
+        Resume();
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(menuKeyCode))
+        {
+            SceneManager.LoadScene("Menu", LoadSceneMode.Single);
+        }
+        if (Input.GetKeyDown(controlsKeyCode))
+        {
+            isShowingControls = !isShowingControls;
+            backgroundScreen.SetActive(isShowingControls);
+            controlsScreen.SetActive(isShowingControls);
+            if (isShowingControls)
+            {
+                Pause();
+            }
+            else
+            {
+                Resume();
+            }
+        }
+
+         if (Input.GetKeyDown(pauseKeyCode))
+         {
+            isShowingPause = !isShowingPause;
+            pauseScreen.SetActive(isShowingPause);
+            if (isShowingPause)
+            {
+                Pause();
+            }
+            else
+            {
+                Resume();
+            }
+         }
+    }
 	
     public void EndGame()
     {
@@ -35,6 +76,7 @@ public class GameManager : MonoBehaviour
             FindObjectOfType<AudioManager>().Play("GameOver");
         }
     }
+
     private void ResetBoard()
     {
 		ballMovement.speed = 10;
@@ -94,29 +136,6 @@ public class GameManager : MonoBehaviour
     {
         winner.text = "Player " + player + " Wins !";
         pressEsc.text = "Press the Esc key for startup Menu";
-    }
-
-    void Update()
-    {
-        if (Input.GetKeyDown(menuKeyCode))
-        {
-            SceneManager.LoadScene("Menu", LoadSceneMode.Single);
-        }
-        if (Input.GetKeyDown(controlsKeyCode))
-        {
-            isShowing = !isShowing;
-            backgroundScreen.SetActive(isShowing);
-            controlsScreen.SetActive(isShowing);
-            if (isShowing)
-            {
-                Pause();
-            }
-            else
-            {
-                Resume();
-            }
-
-        }
     }
 
     void Pause()
