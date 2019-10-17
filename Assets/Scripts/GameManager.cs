@@ -13,7 +13,8 @@ public class GameManager : MonoBehaviour
     public TMP_Text score1, score2, winner, pressEsc;
     public KeyCode menuKeyCode, controlsKeyCode;
     public GameObject controlsScreen, backgroundScreen;
-
+	public BallMovement ballMovement;
+	
     public void EndGame()
     {
         if (player1Score == scoreTarget)
@@ -36,9 +37,13 @@ public class GameManager : MonoBehaviour
     }
     private void ResetBoard()
     {
+		ballMovement.speed = 10;
+		ball.localScale = new Vector3(1, 1, 1);
         ball.position = new Vector3(0, 1, 0);
         player1.position = new Vector3(0, 1, 8.5f);
         player2.position = new Vector3(0, 1, -8.5f);
+		player1.localScale = new Vector3(3f, 1f, 1f);
+		player2.localScale = new Vector3(3f, 1f, 1f);
         FindObjectOfType<AudioManager>().Play("Applause");
         //todo: reset ball movement, for now it moves the same direction as before
     }
