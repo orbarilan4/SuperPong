@@ -12,7 +12,6 @@ public class MainMenu : MonoBehaviour
     public void PlayGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        Time.timeScale = 1;
         PlayMenuSound();
     }
 
@@ -21,7 +20,7 @@ public class MainMenu : MonoBehaviour
         PlayMenuSound();
     }
 
-    public void ControlsGame()
+    public void InstructionsGame()
     {
         PlayMenuSound();
     }
