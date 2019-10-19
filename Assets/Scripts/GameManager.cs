@@ -17,6 +17,12 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        OnLevelWasLoaded();
+    }
+
+    void OnLevelWasLoaded()
+    {
+        Debug.Log("New Game");
         Resume();
         FindObjectOfType<AudioManager>().Play("Intro");
     }

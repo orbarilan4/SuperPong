@@ -10,7 +10,6 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Start");
         this.playerLeft = false;
         this.playerRight = false;
         this.isMoveEnabled = true;
