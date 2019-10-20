@@ -9,11 +9,11 @@ public class BallMovement : MonoBehaviour
     private const float DISCOUNT_FACTOR = 0.85f;
     private const float HIT_FACTOR = 5f;
     private float originalSpeed;
-	public int lastCollision;
-	
+    public int lastCollision;
+
     void Start()
     {
-		lastCollision = 0;
+        lastCollision = 0;
         int rnd = Random.Range(0, 2);
         if (rnd == 0)
         {
@@ -32,6 +32,16 @@ public class BallMovement : MonoBehaviour
         this.speed = Mathf.Max(this.originalSpeed, this.speed * DISCOUNT_FACTOR);
         rb.velocity = rb.velocity.normalized * this.speed;
     }
+
+    public float getOriginalSpeed()
+    {
+        return this.originalSpeed;
+    }
+
+    public void setOriginalSpeed(float newSpeed)
+    {
+        originalSpeed = newSpeed;
+    }
     void OnCollisionEnter(Collision collision)
     {
         Vector3 velocity = rb.velocity;
@@ -39,7 +49,7 @@ public class BallMovement : MonoBehaviour
         if (collision.gameObject.tag == "Wall")
         {
             velocity.x *= -1;
-            velocity.z += 0.009f; 
+            velocity.z += 0.009f;
             rb.velocity = velocity;
         }
 
@@ -61,8 +71,8 @@ public class BallMovement : MonoBehaviour
                 float paddleX = collision.transform.position.x;
                 float ballX = this.transform.position.x;
                 float ballPosition = ballX - paddleX; //the position of the ball relative to the paddle center
-				lastCollision = 2;
-				
+                lastCollision = 2;
+
                 if (ballPosition < 0)
                 {
                     //the ball is left to the paddle
@@ -85,8 +95,8 @@ public class BallMovement : MonoBehaviour
                 float paddleX = collision.transform.position.x;
                 float ballX = this.transform.position.x;
                 float ballPosition = ballX - paddleX; //the position of the ball relative to the paddle center
-				lastCollision = 1;
-				
+                lastCollision = 1;
+
                 if (ballPosition > 0)
                 {
                     //the ball is left to the paddle

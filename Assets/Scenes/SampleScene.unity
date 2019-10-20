@@ -1514,11 +1514,6 @@ MonoBehaviour:
   pauseScreen: {fileID: 1886803558}
   winnerText: {fileID: 1617589535}
   pressEscText: {fileID: 1909438253}
-  powerUp1: {fileID: 1424922152}
-  powerUp2: {fileID: 1258611925}
-  powerUp3: {fileID: 1066473693}
-  powerUp4: {fileID: 2038123788}
-  powerUp5: {fileID: 1867271074}
   ballMovement: {fileID: 2092283587}
 --- !u!4 &695329763
 Transform:
