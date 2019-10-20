@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: 675fbc30ca76b9e49819e123044b3502
+guid: acec9293161397d4d850c99cf4553d5a
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: GeoSphere001
-    100002: //RootNode
-    400000: GeoSphere001
-    400002: //RootNode
-    2100000: GeoSphere001Mat
-    2300000: GeoSphere001
-    3300000: GeoSphere001
-    4300000: GeoSphere001
+    100000: //RootNode
+    100002: Trainers_Cube.025
+    400000: //RootNode
+    400002: Trainers_Cube.025
+    2100000: Trainers_Cube.025Mat
+    2300000: Trainers_Cube.025
+    3300000: Trainers_Cube.025
+    4300000: Trainers_Cube.025
   externalObjects: {}
   materials:
     importMaterials: 1
