@@ -45,6 +45,7 @@ public class PowerUp : MonoBehaviour
     {
         if (collider.tag == "Ball")
         {
+			FindObjectOfType<AudioManager>().Play("Power Up");
             Pickup(collider);
         }
     }
