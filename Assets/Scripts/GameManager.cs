@@ -87,7 +87,7 @@ public class GameManager : MonoBehaviour
 
     private void ResetBoard()
     {
-        ballMovement.speed = 10;
+        ballMovement.setOriginalSpeed(10);
         ball.localScale = new Vector3(1, 1, 1);
         ball.position = new Vector3(0, 1, 0);
         player1.position = new Vector3(0, 1, 8.5f);

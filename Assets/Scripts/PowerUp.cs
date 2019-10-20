@@ -90,25 +90,11 @@ public class PowerUp : MonoBehaviour
         }
         if (this.gameObject.name == "Rabbit")
         {
-            if (ball.speed == 10)
-            {
-                ball.speed = 15;
-            }
-            if (ball.speed == 5)
-            {
-                ball.speed = 10;
-            }
+            ball.setOriginalSpeed(ball.getOriginalSpeed() * 2);
         }
         if (this.gameObject.name == "Turtle")
         {
-            if (ball.speed == 15)
-            {
-                ball.speed = 10;
-            }
-            if (ball.speed == 10)
-            {
-                ball.speed = 5;
-            }
+            ball.setOriginalSpeed(ball.getOriginalSpeed() / 2);
         }
         if (this.gameObject.name == "Giraffe")
         {
