@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     public Transform player1, player2, ball;
     public TMP_Text score1, score2, winner, pressEsc;
     public KeyCode menuKeyCode, instructionsKeyCode, pauseKeyCode;
-    public GameObject backgroundScreen, instructionsScreen, pauseScreen, winnerText, pressEscText;
+    public GameObject backgroundScreen, instructionsScreen, pauseScreen, winnerText, pressEscText, ballObject;
     public BallMovement ballMovement;
 
     void Start()
@@ -87,6 +87,7 @@ public class GameManager : MonoBehaviour
 
     private void ResetBoard()
     {
+        ballObject.SetActive(true);
         ballMovement.setOriginalSpeed(10);
         ball.localScale = new Vector3(1, 1, 1);
         ball.position = new Vector3(0, 1, 0);

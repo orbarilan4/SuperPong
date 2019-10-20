@@ -3,13 +3,14 @@
 public class GoalTrigger : MonoBehaviour
 {
     public GameManager gameManager;
-    public Rigidbody ball;
+    public Rigidbody rb;
+    public GameObject ball;
 
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Ball")
         {
-            if (ball.position.z > 0)
+            if (rb.position.z > 0)
             {
                 //the scorer is player2
                 gameManager.Goal(2);
@@ -19,6 +20,7 @@ public class GoalTrigger : MonoBehaviour
                 //the scorer is player1
                 gameManager.Goal(1);
             }
+            ball.SetActive(false);
             FindObjectOfType<AudioManager>().Play("Goal");
         }
     }
