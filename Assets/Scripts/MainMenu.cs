@@ -5,13 +5,25 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+
+    public int modePick = 0; // 0 - soccer, 1 - tennis
+
     void Start()
     {
         FindObjectOfType<AudioManager>().Play("Intro");
     }
+
     public void PlayGame()
     {
-        SceneManager.LoadScene("Soccer");
+        Debug.Log("modePick: " + modePick);
+        if (modePick == 0)
+        {
+            SceneManager.LoadScene("Soccer");
+        }
+        else if (modePick == 1)
+        {
+            SceneManager.LoadScene("Tennis");
+        }
         PlayMenuSound();
     }
 
@@ -25,15 +37,20 @@ public class MainMenu : MonoBehaviour
         PlayMenuSound();
     }
 
-    // public void QuitGame()
-    // {
-    //     Debug.Log("Quit");
-    //     FindObjectOfType<AudioManager>().Play("MenuButton");
-    //     Application.Quit();
-    // }
-
     public void PlayMenuSound()
     {
         FindObjectOfType<AudioManager>().Play("MenuButton");
+    }
+
+    public void pickSoccer()
+    {
+        modePick = 0;
+        PlayMenuSound();
+    }
+
+    public void pickTennis()
+    {
+        modePick = 1;
+        PlayMenuSound();
     }
 }

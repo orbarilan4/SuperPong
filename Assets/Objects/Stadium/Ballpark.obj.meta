@@ -8,6 +8,7 @@ ModelImporter:
     400000: //RootNode
     400002: Ballpark_mesh
     2100000: Ballpark_meshMat
+    2100002: Ballpark_mat1
     2300000: Ballpark_mesh
     3300000: Ballpark_mesh
     4300000: Ballpark_mesh

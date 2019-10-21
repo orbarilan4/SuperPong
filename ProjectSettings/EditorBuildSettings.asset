@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 8f987672e80a3ff4ba523a0318abd337
+  - enabled: 1
+    path: Assets/Scenes/Soccer.unity
+    guid: 48f275764c1334443b3b8d21f5ba2ab1
   m_configObjects: {}
