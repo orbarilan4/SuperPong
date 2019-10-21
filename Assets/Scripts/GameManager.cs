@@ -88,6 +88,7 @@ public class GameManager : MonoBehaviour
     private void ResetBoard()
     {
         ballObject.SetActive(true);
+        ballMovement.setBallVelocity();
         ballMovement.setOriginalSpeed(10);
         ball.localScale = new Vector3(1, 1, 1);
         ball.position = new Vector3(0, 1, 0);

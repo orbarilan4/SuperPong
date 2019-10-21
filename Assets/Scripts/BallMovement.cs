@@ -14,18 +14,10 @@ public class BallMovement : MonoBehaviour
     void Start()
     {
         lastCollision = 0;
-        int rnd = Random.Range(0, 2);
-        if (rnd == 0)
-        {
-            rb.velocity = new Vector3(0.5f, 0, 0.5f) * speed;
-        }
-        else
-        {
-            rb.velocity = new Vector3(-0.5f, 0, -0.5f) * speed;
-        }
-
-        this.originalSpeed = this.speed;
+        setBallVelocity();
     }
+
+
 
     void FixedUpdate()
     {
@@ -120,5 +112,20 @@ public class BallMovement : MonoBehaviour
             //rb.velocity = new Vector3(velocity.x, 0, velocity.z) * speed;
             FindObjectOfType<AudioManager>().Play("Ball Hit");
         }
+    }
+
+    public void setBallVelocity()
+    {
+        int rnd = Random.Range(0, 2);
+        if (rnd == 0)
+        {
+            rb.velocity = new Vector3(0.5f, 0, 0.5f) * speed;
+        }
+        else
+        {
+            rb.velocity = new Vector3(-0.5f, 0, -0.5f) * speed;
+        }
+
+        this.originalSpeed = this.speed;
     }
 }
