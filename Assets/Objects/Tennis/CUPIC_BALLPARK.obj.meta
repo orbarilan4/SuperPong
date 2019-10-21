@@ -1,18 +1,17 @@
 fileFormatVersion: 2
-guid: acec9293161397d4d850c99cf4553d5a
+guid: feafabfd0cb1a224d9e7b7bcf1942b74
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
-    100002: Trainers_Cube.025
+    100002: default
     400000: //RootNode
-    400002: Trainers_Cube.025
-    2100000: Trainers_Cube.025Mat
-    2100002: 1A1A1A
-    2100004: FFFFFF
-    2300000: Trainers_Cube.025
-    3300000: Trainers_Cube.025
-    4300000: Trainers_Cube.025
+    400002: default
+    2100000: defaultMat
+    2300000: default
+    3300000: default
+    4300000: default
+    2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
     importMaterials: 1
