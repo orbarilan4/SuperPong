@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2292,8 +2292,8 @@ GameObject:
   - component: {fileID: 978664432}
   - component: {fileID: 978664431}
   - component: {fileID: 978664435}
-  - component: {fileID: 978664436}
   - component: {fileID: 978664430}
+  - component: {fileID: 978664436}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Paddle
@@ -2382,7 +2382,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 978664429}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 1, z: 8.5}
+  m_LocalPosition: {x: 0, y: 1, z: 8.5}
   m_LocalScale: {x: 3, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2413,12 +2413,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 978664429}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06601c990f3f6a6448229c267035aee8, type: 3}
+  m_Script: {fileID: 11500000, guid: 126eaa7cc838644eca658732fe62ae2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  leftKeyCode: 276
-  rightKeyCode: 275
+  ball: {fileID: 2092283585}
+  ballMovement: {fileID: 2092283587}
+  hitSpeed: 150
+  speed: 5
+  pToKick: 0.5
 --- !u!1 &994476575
 GameObject:
   m_ObjectHideFlags: 0
@@ -3937,7 +3939,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 200, y: 22.000061}
+  m_AnchoredPosition: {x: 200, y: 22.000122}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1909438253

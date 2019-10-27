@@ -34,6 +34,13 @@ public class BallMovement : MonoBehaviour
     {
         originalSpeed = newSpeed;
     }
+    public void kick(Vector3 direction)
+    {
+        direction.y = 0;
+        float hitSpeed = this.speed * HIT_FACTOR;
+        rb.AddForce(-direction * hitSpeed, ForceMode.Impulse);
+        this.speed = hitSpeed;
+    }
     void OnCollisionEnter(Collision collision)
     {
         Vector3 velocity = rb.velocity;
@@ -51,10 +58,7 @@ public class BallMovement : MonoBehaviour
             if (isKicked)
             {
                 Vector3 direction = (collision.transform.position - transform.position).normalized;
-                direction.y = 0;
-                float hitSpeed = this.speed * HIT_FACTOR;
-                rb.AddForce(-direction * hitSpeed, ForceMode.Impulse);
-                this.speed = hitSpeed;
+                this.kick(direction);
                 return;
             }
 
