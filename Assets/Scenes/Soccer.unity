@@ -2599,8 +2599,8 @@ GameObject:
   - component: {fileID: 978664432}
   - component: {fileID: 978664431}
   - component: {fileID: 978664435}
-  - component: {fileID: 978664436}
   - component: {fileID: 978664430}
+  - component: {fileID: 978664436}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Paddle
@@ -2720,12 +2720,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 978664429}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06601c990f3f6a6448229c267035aee8, type: 3}
+  m_Script: {fileID: 11500000, guid: 126eaa7cc838644eca658732fe62ae2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  leftKeyCode: 276
-  rightKeyCode: 275
+  ball: {fileID: 2092283585}
+  ballMovement: {fileID: 2092283587}
+  hitSpeed: 150
+  speed: 5
+  pToKick: 0.5
 --- !u!1 &994476575
 GameObject:
   m_ObjectHideFlags: 0
