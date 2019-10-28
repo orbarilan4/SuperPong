@@ -7,45 +7,47 @@ public class KickBehaviour : MonoBehaviour
     public float hitSpeed = 150f;
     private const float MAX_Y_ROTATION_ANGLE = 50f;
 
-    private bool rightKick, leftkick;
+    private bool rightKick, leftKick;
 
     private PlayerMovement playerMovement;
-
+	public Joybutton joybuttonRight, joybuttonLeft;
     public KeyCode leftKickCode, rightKickCode;
     // Start is called before the first frame update
     void Start()
     {
         this.rightKick = false;
-        this.leftkick = false;
-        this.playerMovement = gameObject.GetComponent<PlayerMovement>();
+        this.leftKick = false;
+        playerMovement = gameObject.GetComponent<PlayerMovement>();
+		//joybuttonRight = FindObjectOfType<Joybutton>();
+		//joybuttonLeft = FindObjectOfType<Joybutton>();
     }
 
     public bool isKicked()
     {
-        return this.rightKick || this.leftkick;
+        return this.rightKick || this.leftKick;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (Input.GetKeyDown(rightKickCode) && !this.rightKick)
+        if ((Input.GetKeyDown(rightKickCode) || (joybuttonRight.pressed && joybuttonRight.name == "Rigth Button")) && !this.rightKick)
         {
             this.rightKick = true;
             this.playerMovement.disableMove();
         } 
-        if (Input.GetKeyUp(rightKickCode))
+        if (Input.GetKeyUp(rightKickCode)  || (!joybuttonRight.pressed  && joybuttonRight.name == "Rigth Button"))
         {
             this.rightKick = false;
             this.playerMovement.enableMove();
         }
-        if (Input.GetKeyDown(leftKickCode) && !this.leftkick)
+        if ((Input.GetKeyDown(leftKickCode) || (joybuttonLeft.pressed && joybuttonLeft.name == "Left Button")) && !this.leftKick)
         {
-            this.leftkick = true;
+            this.leftKick = true;
             this.playerMovement.disableMove();
         }
-        if (Input.GetKeyUp(leftKickCode))
+        if (Input.GetKeyUp(leftKickCode) || (!joybuttonLeft.pressed && joybuttonLeft.name == "Left Button"))
         {
-            this.leftkick = false;
+            this.leftKick = false;
             this.playerMovement.enableMove();
         }
 
@@ -57,7 +59,7 @@ public class KickBehaviour : MonoBehaviour
                 transform.Rotate(Vector3.up * hitSpeed * Time.deltaTime);
             }      
         } 
-        else if (this.leftkick)
+        else if (this.leftKick)
         {
             float angle = (currentRotation.y > 180f) ? currentRotation.y - 360f : currentRotation.y;
             if (angle >= -MAX_Y_ROTATION_ANGLE)
@@ -65,7 +67,7 @@ public class KickBehaviour : MonoBehaviour
                 transform.Rotate(-Vector3.up * hitSpeed * Time.deltaTime);
             }
         }
-        else if (!this.rightKick || !this.leftkick)
+        else if (!this.rightKick || !this.leftKick)
         {
             transform.rotation = Quaternion.identity;
         }
