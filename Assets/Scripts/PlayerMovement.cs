@@ -5,63 +5,96 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
 	protected Joystick joystick;
-    private bool playerLeft, playerRight, isMoveEnabled;
+    private bool playerLeft, playerRight, isMoveEnabled, isPCMovement;
     public float speed = 10f;
     public KeyCode leftKeyCode, rightKeyCode;
+	public Vector3 currentPosition, lastPosition;
     // Start is called before the first frame update
     void Start()
     {
         this.playerLeft = false;
 		this.playerRight = false;
         this.isMoveEnabled = true;
+		this.isPCMovement = false;
 		joystick = FindObjectOfType<Joystick>();
     }
-
-    public void enableMove()
-    {
-        this.isMoveEnabled = true;
-    }
-
+	
     public void disableMove()
     {
         this.isMoveEnabled = false;
     }
 
+    public IEnumerator enableMove()
+    {
+		yield return new WaitForSeconds(0.5f);
+        this.isMoveEnabled = true;
+    }
+
     // 'FixedUpdate' makes bugs to i changed it to 'Update'
     void Update()
     {
+		// Joystick Configuration
+		currentPosition = this.transform.position;
 		var rigidbody = GetComponent<Rigidbody>();
-		if(isMoveEnabled)
-		{
+		float xVelocity = rigidbody.velocity.x;
+		if(isMoveEnabled){
 			rigidbody.velocity = new Vector3(joystick.Horizontal * 10f + Input.GetAxis("Horizontal") * 10f,
 											 rigidbody.velocity.y,
 											 rigidbody.velocity.z);
+			if(lastPosition.x < currentPosition.x)
+			{
+				Debug.Log("Right");
+				this.playerRight = true;
+
+			}
+			else if(lastPosition.x > currentPosition.x)
+			{
+				Debug.Log("Left");
+				this.playerLeft = true;
+			}
+			else{
+				Debug.Log("Not Moving");
+				this.playerLeft = false;
+				this.playerRight = false;
+			}
 		}
+		lastPosition = currentPosition;
+		
+		// PC Keyboard Configuration
         if (Input.GetKeyDown(leftKeyCode))
         {
             this.playerLeft = true;
+			this.isPCMovement = true;
         }
         if (Input.GetKeyUp(leftKeyCode))
         {
             this.playerLeft = false;
+			this.isPCMovement = false;
         }
         
         if (Input.GetKeyDown(rightKeyCode))
         {
             this.playerRight = true;
+			this.isPCMovement = true;
         }
         if (Input.GetKeyUp(rightKeyCode))
         {
             this.playerRight = false;
+			this.isPCMovement = false;
         }
 
-        if (this.playerLeft && isMoveEnabled)
+        if (this.playerLeft && isMoveEnabled && isPCMovement)
         {
             transform.Translate(-speed * Time.deltaTime, 0, 0);
         }
-        if (this.playerRight && isMoveEnabled)
+        if (this.playerRight && isMoveEnabled && isPCMovement)
         {
             transform.Translate(speed * Time.deltaTime, 0, 0);
         }
+		
+		// Player move in z coordinate bug fix:
+		Vector3 newPosition = transform.position;
+		newPosition.z = -8.5f;
+		transform.position = newPosition; 
     }
 }

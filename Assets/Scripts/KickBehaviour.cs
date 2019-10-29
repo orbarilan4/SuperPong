@@ -30,25 +30,25 @@ public class KickBehaviour : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if ((Input.GetKeyDown(rightKickCode) || (joybuttonRight.pressed && joybuttonRight.name == "Rigth Button")) && !this.rightKick)
+        if ((Input.GetKeyDown(rightKickCode) /*|| (joybuttonRight.pressed && joybuttonRight.name == "Rigth Button")*/) && !this.rightKick)
         {
             this.rightKick = true;
             this.playerMovement.disableMove();
         } 
-        if (Input.GetKeyUp(rightKickCode)  || (!joybuttonRight.pressed  && joybuttonRight.name == "Rigth Button"))
+        if (Input.GetKeyUp(rightKickCode) /*|| (!joybuttonRight.pressed  && joybuttonRight.name == "Rigth Button")*/)
         {
             this.rightKick = false;
-            this.playerMovement.enableMove();
+            StartCoroutine(this.playerMovement.enableMove());
         }
-        if ((Input.GetKeyDown(leftKickCode) || (joybuttonLeft.pressed && joybuttonLeft.name == "Left Button")) && !this.leftKick)
+        if ((Input.GetKeyDown(leftKickCode) /*|| (joybuttonLeft.pressed && joybuttonLeft.name == "Left Button")*/) && !this.leftKick)
         {
             this.leftKick = true;
             this.playerMovement.disableMove();
         }
-        if (Input.GetKeyUp(leftKickCode) || (!joybuttonLeft.pressed && joybuttonLeft.name == "Left Button"))
+        if (Input.GetKeyUp(leftKickCode) /*|| (!joybuttonLeft.pressed && joybuttonLeft.name == "Left Button")*/)
         {
             this.leftKick = false;
-            this.playerMovement.enableMove();
+            StartCoroutine(this.playerMovement.enableMove());
         }
 
         Vector3 currentRotation = transform.localRotation.eulerAngles; 

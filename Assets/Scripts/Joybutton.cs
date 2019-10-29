@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
+using System.Collections.Generic;
+using System.Collections;
 
 public class Joybutton : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 {
@@ -17,6 +19,7 @@ public class Joybutton : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
     {
         
     }
+	
 	public void OnPointerDown(PointerEventData eventData)
 	{
 		pressed = true;

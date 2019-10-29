@@ -82,7 +82,6 @@ public class ComputerAgent : MonoBehaviour
             {   
                 if (currentRotation.y < MAX_Y_ROTATION_ANGLE)
                 {
-                    Debug.Log("kick left");
                     this.leftKick = true;
                     ballMovement.kick(d);
                 }  
@@ -93,7 +92,6 @@ public class ComputerAgent : MonoBehaviour
                 float angle = (currentRotation.y > 180f) ? currentRotation.y - 360f : currentRotation.y;
                 if (angle >= -MAX_Y_ROTATION_ANGLE)
                 {
-                    Debug.Log("kick right");
                     this.rightKick = true;
                     ballMovement.kick(d);
                 }
