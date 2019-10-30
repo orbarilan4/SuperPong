@@ -65,6 +65,11 @@ public class ComputerAgent : MonoBehaviour
         {
             transform.rotation = Quaternion.identity;
         }
+		
+		// ComputerAgent move in z coordinate bug fix:
+		Vector3 newPosition = transform.position;
+		newPosition.z = 8.5f;
+		transform.position = newPosition; 
     }
 
     void OnCollisionEnter(Collision collision)

@@ -33,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // 'FixedUpdate' makes bugs to i changed it to 'Update'
-    void Update()
+    void FixedUpdate()
     {
 		// Joystick Configuration
 		currentPosition = this.transform.position;
@@ -60,6 +60,10 @@ public class PlayerMovement : MonoBehaviour
 				this.playerLeft = false;
 				this.playerRight = false;
 			}
+		}
+		else
+		{
+			StartCoroutine(enableMove());
 		}
 		lastPosition = currentPosition;
 		

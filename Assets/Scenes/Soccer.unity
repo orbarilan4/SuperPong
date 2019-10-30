@@ -411,7 +411,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97b2c754b245aa047872ed676e90a35c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pressed: 0
   name: 
 --- !u!1 &224987796
 GameObject:
@@ -3235,7 +3234,7 @@ GameObject:
   - component: {fileID: 1265003612}
   - component: {fileID: 1265003614}
   m_Layer: 0
-  m_Name: Rigth Button
+  m_Name: Right Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3307,7 +3306,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97b2c754b245aa047872ed676e90a35c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pressed: 0
   name: 
 --- !u!1 &1298973260
 GameObject:
@@ -3914,6 +3912,8 @@ MonoBehaviour:
   speed: 10
   leftKeyCode: 0
   rightKeyCode: 0
+  currentPosition: {x: 0, y: 0, z: 0}
+  lastPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &1508791770
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,7 +5,7 @@ using System.Collections;
 
 public class Joybutton : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 {
-	public int pressed = -1;
+	private int pressed = -1;
 	public string name;
 
     // Start is called before the first frame update
@@ -17,7 +17,7 @@ public class Joybutton : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
     // Update is called once per frame
     void Update()
     {
-        
+	
     }
 	
 	public int getPressed()

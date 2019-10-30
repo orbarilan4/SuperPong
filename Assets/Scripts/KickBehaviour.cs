@@ -17,10 +17,10 @@ public class KickBehaviour : MonoBehaviour
     {
         this.rightKick = false;
         this.leftKick = false;
-        playerMovement = gameObject.GetComponent<PlayerMovement>();
-		//playerMovement = GameObject.Find("Player2").GetComponent<PlayerMovement>();
-		//joybuttonRight = GameObject.Find("Rigth Button").GetComponent<Joybutton>();
-		//joybuttonLeft = GameObject.Find("Left Button").GetComponent<Joybutton>();
+        //playerMovement = gameObject.GetComponent<PlayerMovement>();
+		playerMovement = GameObject.Find("Player2").GetComponent<PlayerMovement>();
+		joybuttonRight = GameObject.Find("Right Button").GetComponent<Joybutton>();
+		joybuttonLeft = GameObject.Find("Left Button").GetComponent<Joybutton>();
     }
 
     public bool isKicked()
@@ -32,35 +32,35 @@ public class KickBehaviour : MonoBehaviour
     void FixedUpdate()
     {
 		// Joystick Configuration
-        if (joybuttonRight.getPressed() ==1 && !this.rightKick)
+        if (joybuttonRight.getPressed() == 1 && !this.rightKick)
         {
             this.rightKick = true;
+			Debug.Log("Zubi");
             this.playerMovement.disableMove();
         } 
-        if (joybuttonRight.getPressed() ==0)
+        if (joybuttonRight.getPressed() == 0 && !this.leftKick)
         {
             this.rightKick = false;
-			Debug.Log("Zubi");
             StartCoroutine(this.playerMovement.enableMove());
         }
-        if (joybuttonLeft.getPressed()==1 && !this.leftKick)
+        if (joybuttonLeft.getPressed() == 1 && !this.leftKick)
         {
             this.leftKick = true;
             this.playerMovement.disableMove();
         }
-        if (joybuttonLeft.getPressed()==0)
+        if (joybuttonLeft.getPressed() == 0  && this.leftKick)
         {
             this.leftKick = false;
             StartCoroutine(this.playerMovement.enableMove());
         }
 
 		// PC Keyboard Configuration
-        /*if (Input.GetKeyDown(rightKickCode) && !this.rightKick)
+        if (Input.GetKeyDown(rightKickCode) && !this.rightKick)
         {
             this.rightKick = true;
             this.playerMovement.disableMove();
         } 
-        if (Input.GetKeyUp(rightKickCode))
+        if (Input.GetKeyUp(rightKickCode) && this.rightKick)
         {
             this.rightKick = false;
             StartCoroutine(this.playerMovement.enableMove());
@@ -70,11 +70,11 @@ public class KickBehaviour : MonoBehaviour
             this.leftKick = true;
             this.playerMovement.disableMove();
         }
-        if (Input.GetKeyUp(leftKickCode))
+        if (Input.GetKeyUp(leftKickCode) && this.leftKick)
         {
             this.leftKick = false;
             StartCoroutine(this.playerMovement.enableMove());
-        }*/
+        }
 
         Vector3 currentRotation = transform.localRotation.eulerAngles; 
         if (this.rightKick) 
