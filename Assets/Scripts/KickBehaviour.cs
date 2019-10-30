@@ -18,8 +18,9 @@ public class KickBehaviour : MonoBehaviour
         this.rightKick = false;
         this.leftKick = false;
         playerMovement = gameObject.GetComponent<PlayerMovement>();
-		//joybuttonRight = FindObjectOfType<Joybutton>();
-		//joybuttonLeft = FindObjectOfType<Joybutton>();
+		//playerMovement = GameObject.Find("Player2").GetComponent<PlayerMovement>();
+		//joybuttonRight = GameObject.Find("Rigth Button").GetComponent<Joybutton>();
+		//joybuttonLeft = GameObject.Find("Left Button").GetComponent<Joybutton>();
     }
 
     public bool isKicked()
@@ -30,26 +31,50 @@ public class KickBehaviour : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if ((Input.GetKeyDown(rightKickCode) /*|| (joybuttonRight.pressed && joybuttonRight.name == "Rigth Button")*/) && !this.rightKick)
+		// Joystick Configuration
+        if (joybuttonRight.getPressed() ==1 && !this.rightKick)
         {
             this.rightKick = true;
             this.playerMovement.disableMove();
         } 
-        if (Input.GetKeyUp(rightKickCode) /*|| (!joybuttonRight.pressed  && joybuttonRight.name == "Rigth Button")*/)
+        if (joybuttonRight.getPressed() ==0)
         {
             this.rightKick = false;
+			Debug.Log("Zubi");
             StartCoroutine(this.playerMovement.enableMove());
         }
-        if ((Input.GetKeyDown(leftKickCode) /*|| (joybuttonLeft.pressed && joybuttonLeft.name == "Left Button")*/) && !this.leftKick)
+        if (joybuttonLeft.getPressed()==1 && !this.leftKick)
         {
             this.leftKick = true;
             this.playerMovement.disableMove();
         }
-        if (Input.GetKeyUp(leftKickCode) /*|| (!joybuttonLeft.pressed && joybuttonLeft.name == "Left Button")*/)
+        if (joybuttonLeft.getPressed()==0)
         {
             this.leftKick = false;
             StartCoroutine(this.playerMovement.enableMove());
         }
+
+		// PC Keyboard Configuration
+        /*if (Input.GetKeyDown(rightKickCode) && !this.rightKick)
+        {
+            this.rightKick = true;
+            this.playerMovement.disableMove();
+        } 
+        if (Input.GetKeyUp(rightKickCode))
+        {
+            this.rightKick = false;
+            StartCoroutine(this.playerMovement.enableMove());
+        }
+        if (Input.GetKeyDown(leftKickCode) && !this.leftKick)
+        {
+            this.leftKick = true;
+            this.playerMovement.disableMove();
+        }
+        if (Input.GetKeyUp(leftKickCode))
+        {
+            this.leftKick = false;
+            StartCoroutine(this.playerMovement.enableMove());
+        }*/
 
         Vector3 currentRotation = transform.localRotation.eulerAngles; 
         if (this.rightKick) 
@@ -57,7 +82,7 @@ public class KickBehaviour : MonoBehaviour
             if (currentRotation.y < MAX_Y_ROTATION_ANGLE)
             {
                 transform.Rotate(Vector3.up * hitSpeed * Time.deltaTime);
-            }      
+            }
         } 
         else if (this.leftKick)
         {

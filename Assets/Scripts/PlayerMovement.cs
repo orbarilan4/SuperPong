@@ -21,12 +21,14 @@ public class PlayerMovement : MonoBehaviour
 	
     public void disableMove()
     {
+		Debug.Log("Disable move");
         this.isMoveEnabled = false;
     }
 
     public IEnumerator enableMove()
     {
-		yield return new WaitForSeconds(0.5f);
+		Debug.Log("Enable move");
+		yield return new WaitForSeconds(5f);
         this.isMoveEnabled = true;
     }
 
@@ -38,22 +40,23 @@ public class PlayerMovement : MonoBehaviour
 		var rigidbody = GetComponent<Rigidbody>();
 		float xVelocity = rigidbody.velocity.x;
 		if(isMoveEnabled){
+			Debug.Log("move");
 			rigidbody.velocity = new Vector3(joystick.Horizontal * 10f + Input.GetAxis("Horizontal") * 10f,
 											 rigidbody.velocity.y,
 											 rigidbody.velocity.z);
 			if(lastPosition.x < currentPosition.x)
 			{
-				Debug.Log("Right");
+				//Debug.Log("Right");
 				this.playerRight = true;
 
 			}
 			else if(lastPosition.x > currentPosition.x)
 			{
-				Debug.Log("Left");
+				//Debug.Log("Left");
 				this.playerLeft = true;
 			}
 			else{
-				Debug.Log("Not Moving");
+				//Debug.Log("Not Moving");
 				this.playerLeft = false;
 				this.playerRight = false;
 			}

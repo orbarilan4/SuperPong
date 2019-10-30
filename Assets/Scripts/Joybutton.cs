@@ -5,9 +5,9 @@ using System.Collections;
 
 public class Joybutton : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 {
-	[HideInInspector]
-	public bool pressed;
+	public int pressed = -1;
 	public string name;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,12 +20,20 @@ public class Joybutton : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
         
     }
 	
+	public int getPressed()
+	{
+		return pressed;
+	}
+	
 	public void OnPointerDown(PointerEventData eventData)
 	{
-		pressed = true;
+		Debug.Log("press");
+		pressed = 1;
 	}
 	public void OnPointerUp(PointerEventData eventData)
 	{
-		pressed = false;
+		Debug.Log("not press");
+		pressed = 0;
 	}
+	
 }
