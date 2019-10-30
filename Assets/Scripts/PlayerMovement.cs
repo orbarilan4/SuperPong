@@ -14,56 +14,32 @@ public class PlayerMovement : MonoBehaviour
     {
         this.playerLeft = false;
 		this.playerRight = false;
-        this.isMoveEnabled = true;
 		this.isPCMovement = false;
 		joystick = FindObjectOfType<Joystick>();
-    }
-	
-    public void disableMove()
-    {
-		Debug.Log("Disable move");
-        this.isMoveEnabled = false;
-    }
-
-    public IEnumerator enableMove()
-    {
-		Debug.Log("Enable move");
-		yield return new WaitForSeconds(5f);
-        this.isMoveEnabled = true;
     }
 
     // 'FixedUpdate' makes bugs to i changed it to 'Update'
     void FixedUpdate()
-    {
+    {		
 		// Joystick Configuration
 		currentPosition = this.transform.position;
 		var rigidbody = GetComponent<Rigidbody>();
 		float xVelocity = rigidbody.velocity.x;
-		if(isMoveEnabled){
-			Debug.Log("move");
-			rigidbody.velocity = new Vector3(joystick.Horizontal * 10f + Input.GetAxis("Horizontal") * 10f,
-											 rigidbody.velocity.y,
-											 rigidbody.velocity.z);
-			if(lastPosition.x < currentPosition.x)
-			{
-				//Debug.Log("Right");
-				this.playerRight = true;
-
-			}
-			else if(lastPosition.x > currentPosition.x)
-			{
-				//Debug.Log("Left");
-				this.playerLeft = true;
-			}
-			else{
-				//Debug.Log("Not Moving");
-				this.playerLeft = false;
-				this.playerRight = false;
-			}
-		}
-		else
+		rigidbody.velocity = new Vector3(joystick.Horizontal * 10f + Input.GetAxis("Horizontal") * 10f,
+										 rigidbody.velocity.y,
+										 rigidbody.velocity.z);
+		if(lastPosition.x < currentPosition.x)
 		{
-			StartCoroutine(enableMove());
+			this.playerRight = true;
+
+		}
+		else if(lastPosition.x > currentPosition.x)
+		{
+			this.playerLeft = true;
+		}
+		else{
+			this.playerLeft = false;
+			this.playerRight = false;
 		}
 		lastPosition = currentPosition;
 		
@@ -89,19 +65,18 @@ public class PlayerMovement : MonoBehaviour
             this.playerRight = false;
 			this.isPCMovement = false;
         }
-
-        if (this.playerLeft && isMoveEnabled && isPCMovement)
+        if (this.playerLeft && isPCMovement)
         {
             transform.Translate(-speed * Time.deltaTime, 0, 0);
         }
-        if (this.playerRight && isMoveEnabled && isPCMovement)
+        if (this.playerRight && isPCMovement)
         {
             transform.Translate(speed * Time.deltaTime, 0, 0);
         }
 		
 		// Player move in z coordinate bug fix:
 		Vector3 newPosition = transform.position;
-		newPosition.z = -8.5f;
+		newPosition.z = -8.2f;
 		transform.position = newPosition; 
     }
 }
