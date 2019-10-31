@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 163179764252548299}
   - component: {fileID: 2083143658282172708}
   - component: {fileID: 6269417185690720217}
-  - component: {fileID: 8638267324052682980}
+  - component: {fileID: 5651682055370992543}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Ball
@@ -109,7 +109,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 3
---- !u!114 &8638267324052682980
+--- !u!114 &5651682055370992543
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -118,12 +118,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 138821529602165437}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92cb9a4ad7e92a8438af577d6b1ef8e7, type: 3}
+  m_Script: {fileID: 11500000, guid: 06830dec72cbc0c48812c902b6e18b84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 6269417185690720217}
   speed: 0.4
-  lastCollision: 0
+  originalSpeed: 0.4
 --- !u!1 &1016577286602353572
 GameObject:
   m_ObjectHideFlags: 0
@@ -1829,7 +1829,7 @@ GameObject:
   - component: {fileID: 6320950362192008849}
   - component: {fileID: 6521313969951310919}
   - component: {fileID: 333378537504622680}
-  - component: {fileID: 3391200053991030881}
+  - component: {fileID: 8123989490138115496}
   m_Layer: 0
   m_Name: Gate1
   m_TagString: Gate
@@ -1909,7 +1909,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3391200053991030881
+--- !u!114 &8123989490138115496
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1918,11 +1918,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4744109220852321295}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f753865525714f040913a1f5e415044c, type: 3}
+  m_Script: {fileID: 11500000, guid: 4a83415f140aab54397d9af290ba0d62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 665699283594593907}
-  rb: {fileID: 6269417185690720217}
+  gameManager: {fileID: 4866212190107192797}
   ball: {fileID: 138821529602165437}
 --- !u!65 &7853100672357789511
 BoxCollider:
@@ -2193,7 +2192,7 @@ GameObject:
   - component: {fileID: 5908730887893545782}
   - component: {fileID: 7381573116186039845}
   - component: {fileID: 233844201211778845}
-  - component: {fileID: 34994686694755311}
+  - component: {fileID: 5028611862314804012}
   m_Layer: 0
   m_Name: Gate2
   m_TagString: Gate
@@ -2273,7 +2272,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &34994686694755311
+--- !u!114 &5028611862314804012
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2282,11 +2281,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6015723408428681134}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f753865525714f040913a1f5e415044c, type: 3}
+  m_Script: {fileID: 11500000, guid: 4a83415f140aab54397d9af290ba0d62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 665699283594593907}
-  rb: {fileID: 6269417185690720217}
+  gameManager: {fileID: 4866212190107192797}
   ball: {fileID: 138821529602165437}
 --- !u!1 &6233628766955185768
 GameObject:
@@ -2924,7 +2922,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5063027877728522875}
-  - component: {fileID: 665699283594593907}
+  - component: {fileID: 4866212190107192797}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2946,7 +2944,7 @@ Transform:
   m_Father: {fileID: 762220422182447541}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &665699283594593907
+--- !u!114 &4866212190107192797
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2955,16 +2953,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6953073151892714648}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 288b69c159930a142ac9de56a47fa561, type: 3}
+  m_Script: {fileID: 11500000, guid: 59db7df879994504db87cd38b03327c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resetDelay: 1
-  player1Score: 0
-  player2Score: 0
   scoreTarget: 3
-  endGame: 0
-  isShowingInstructions: 0
-  isShowingPause: 0
   player1: {fileID: 1605625102252285568}
   player2: {fileID: 3199277467399182106}
   ball: {fileID: 6248982499411735184}
@@ -2972,16 +2964,16 @@ MonoBehaviour:
   score2: {fileID: 8710347414190267271}
   winner: {fileID: 9124977216307451258}
   pressEsc: {fileID: 5517977980821611785}
-  menuKeyCode: 27
-  instructionsKeyCode: 105
-  pauseKeyCode: 112
+  menuKeyCode: 0
+  instructionsKeyCode: 0
+  pauseKeyCode: 0
   backgroundScreen: {fileID: 7737585097362737532}
   instructionsScreen: {fileID: 1016577286602353572}
   pauseScreen: {fileID: 1075598180006157267}
   winnerText: {fileID: 4045615155648535813}
   pressEscText: {fileID: 7887609528054147473}
   ballObject: {fileID: 138821529602165437}
-  ballMovement: {fileID: 8638267324052682980}
+  ballMovement: {fileID: 5651682055370992543}
 --- !u!65 &7163460690996223222
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3715,7 +3707,7 @@ GameObject:
   - component: {fileID: 7818454467280695143}
   - component: {fileID: 3385622956306897181}
   - component: {fileID: 9163205404025178513}
-  - component: {fileID: 7592653806705321519}
+  - component: {fileID: 2893376516677501455}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Paddle
@@ -3811,22 +3803,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &7592653806705321519
+--- !u!114 &2893376516677501455
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8254408844963170004}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 126eaa7cc838644eca658732fe62ae2e, type: 3}
+  m_Script: {fileID: 11500000, guid: 3177900126137de45882907f9e8ea294, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ball: {fileID: 6248982499411735184}
-  hitSpeed: 1
-  speed: 0.4
-  pToKick: 0.5
+  speed: 1
 --- !u!1 &8485625655576670331
 GameObject:
   m_ObjectHideFlags: 0
@@ -3840,7 +3830,7 @@ GameObject:
   - component: {fileID: 893350354584654459}
   - component: {fileID: 900975102896552828}
   - component: {fileID: 4418831012319704511}
-  - component: {fileID: 4611735029015325364}
+  - component: {fileID: 5895273796104379858}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Paddle
@@ -3936,7 +3926,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &4611735029015325364
+--- !u!114 &5895273796104379858
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3945,12 +3935,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8485625655576670331}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06601c990f3f6a6448229c267035aee8, type: 3}
+  m_Script: {fileID: 11500000, guid: 4c6249c733b245248a76723d27ebae80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.4
-  leftKeyCode: 97
-  rightKeyCode: 100
   currentPosition: {x: 0, y: 1, z: -0.475}
   lastPosition: {x: 0, y: 1, z: -0.475}
 --- !u!1 &8859380285444337941
