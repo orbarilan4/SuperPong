@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public TMP_Text score1, score2, winner, pressEsc;
     public KeyCode menuKeyCode, instructionsKeyCode, pauseKeyCode;
     public GameObject backgroundScreen, instructionsScreen, pauseScreen, winnerText, pressEscText, ballObject;
+    private Vector3 ballPos, player1Pos, player2Pos, player1LocalScale, player2LocalScale;
     public BallMovement ballMovement;
 	public ControlButton exitButton,pauseButton;
 
@@ -25,7 +26,17 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("New Game");
         Resume();
+        SavePositions();
         FindObjectOfType<AudioManager>().Play("Intro");
+    }
+
+    private void SavePositions()
+    {
+        ballPos = ball.position;
+        player1Pos = player1.position;
+        player2Pos = player2.position;
+        player1LocalScale = player1.localScale;
+        player2LocalScale = player2.localScale;
     }
 
     void Update()
@@ -93,14 +104,13 @@ public class GameManager : MonoBehaviour
         ballObject.SetActive(true);
         ballMovement.setBallVelocity();
         ballMovement.setOriginalSpeed(10);
-        ball.localScale = new Vector3(1, 1, 1);
-        ball.position = new Vector3(0, 1, 0);
-        player1.position = new Vector3(0, 1, 8.5f);
-        player2.position = new Vector3(0, 1, -8.5f);
-        player1.localScale = new Vector3(3f, 1f, 1f);
-        player2.localScale = new Vector3(3f, 1f, 1f);
+
+        ball.position = ballPos;
+        player1.position = player1Pos;
+        player2.position = player2Pos;
+        player1.localScale = player1LocalScale;
+        player2.localScale = player2LocalScale;
         FindObjectOfType<AudioManager>().Play("Applause");
-        //todo: reset ball movement, for now it moves the same direction as before
     }
 
     private void ResetScore()
