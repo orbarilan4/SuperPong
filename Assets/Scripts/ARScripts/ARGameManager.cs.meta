@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 59db7df879994504db87cd38b03327c9
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - player1: {instanceID: 0}
+  - player2: {instanceID: 0}
+  - ball: {instanceID: 0}
+  - winner: {fileID: 68503898058374878, guid: 472d6f6c4b9a57644b2a4ad1ef2ff922, type: 3}
+  - score1: {instanceID: 0}
+  - score2: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
