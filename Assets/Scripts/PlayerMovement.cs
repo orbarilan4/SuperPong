@@ -18,10 +18,10 @@ public class PlayerMovement : MonoBehaviour
 		joystick = FindObjectOfType<Joystick>();
     }
 
-    // 'FixedUpdate' makes bugs to i changed it to 'Update'
-    void FixedUpdate()
+    // 'FixedUpdate' makes bugs so i changed it to 'Update'
+    void Update()
     {		
-		// Joystick Configuration
+		//Joystick Configuration
 		currentPosition = this.transform.position;
 		var rigidbody = GetComponent<Rigidbody>();
 		float xVelocity = rigidbody.velocity.x;
