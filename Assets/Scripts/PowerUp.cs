@@ -10,7 +10,7 @@ public class PowerUp : MonoBehaviour
     public GameObject pickupEffect;
     public BallMovement ball;
     public Transform player1, player2;
-
+	
     void OnLevelWasLoaded()
     {
         Init();
@@ -106,6 +106,19 @@ public class PowerUp : MonoBehaviour
             if (ball.lastCollision == 2)
             {
                 player2.localScale = new Vector3(5f, 1f, 1f);
+            }
+        }
+		if (this.gameObject.name == "Monkey")
+        {
+			if (ball.lastCollision == 1)
+            {
+                //GameObject.Find("Shooting Button").GetComponent<Joybutton>().Unhide();
+				FindObjectOfType<Joybutton>().Unhide();
+            }
+			if (ball.lastCollision == 2)
+            {
+                //GameObject.Find("Shooting Button").GetComponent<Joybutton>().Unhide();
+				FindObjectOfType<Joybutton>().Unhide();
             }
         }
     }
