@@ -1832,9 +1832,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickupEffect: {fileID: 100000, guid: 53d301af6d66cf94497e9fcec3cb6699, type: 3}
-  ball: {fileID: 0}
+  ball: {fileID: 2092283587}
   player1: {fileID: 978664434}
   player2: {fileID: 1499114959}
+  joybutton: {fileID: 745991028}
 --- !u!1 &668535745
 GameObject:
   m_ObjectHideFlags: 0
@@ -3163,6 +3164,7 @@ MonoBehaviour:
   ball: {fileID: 2092283587}
   player1: {fileID: 0}
   player2: {fileID: 0}
+  joybutton: {fileID: 0}
 --- !u!65 &1066473695
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3306,6 +3308,7 @@ MonoBehaviour:
   ball: {fileID: 2092283587}
   player1: {fileID: 978664434}
   player2: {fileID: 1499114959}
+  joybutton: {fileID: 0}
 --- !u!65 &1258611926
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3545,6 +3548,7 @@ MonoBehaviour:
   ball: {fileID: 2092283587}
   player1: {fileID: 0}
   player2: {fileID: 0}
+  joybutton: {fileID: 0}
 --- !u!1001 &1451075668
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4977,6 +4981,7 @@ MonoBehaviour:
   ball: {fileID: 2092283587}
   player1: {fileID: 0}
   player2: {fileID: 0}
+  joybutton: {fileID: 0}
 --- !u!1 &1886803558
 GameObject:
   m_ObjectHideFlags: 0
@@ -5612,6 +5617,7 @@ MonoBehaviour:
   ball: {fileID: 2092283587}
   player1: {fileID: 0}
   player2: {fileID: 0}
+  joybutton: {fileID: 0}
 --- !u!1 &2092283581
 GameObject:
   m_ObjectHideFlags: 0

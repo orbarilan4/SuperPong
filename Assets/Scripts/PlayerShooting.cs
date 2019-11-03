@@ -24,8 +24,8 @@ public class PlayerShooting : MonoBehaviour
 			transform.position = player.transform.position + new Vector3(0f,0f,2f);
 			//rb.velocity = rb.velocity.normalized * this.speed;
 			rb.velocity += new Vector3(0, 0, 3f) * speed;
+			joybutton.Hide();
 		}
-		joybutton.Hide();
 		if(Math.Abs(transform.position.z) > 12)
 		{
 			rb.velocity = oldVelocity; 

@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Threading;
 
 public class PowerUp : MonoBehaviour
 {
@@ -10,6 +9,7 @@ public class PowerUp : MonoBehaviour
     public GameObject pickupEffect;
     public BallMovement ball;
     public Transform player1, player2;
+	public Joybutton joybutton;
 	
     void OnLevelWasLoaded()
     {
@@ -112,13 +112,11 @@ public class PowerUp : MonoBehaviour
         {
 			if (ball.lastCollision == 1)
             {
-                //GameObject.Find("Shooting Button").GetComponent<Joybutton>().Unhide();
-				FindObjectOfType<Joybutton>().Unhide();
+				joybutton.Unhide();
             }
 			if (ball.lastCollision == 2)
             {
-                //GameObject.Find("Shooting Button").GetComponent<Joybutton>().Unhide();
-				FindObjectOfType<Joybutton>().Unhide();
+				joybutton.Unhide();
             }
         }
     }
