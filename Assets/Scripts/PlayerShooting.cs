@@ -50,7 +50,7 @@ public class PlayerShooting : MonoBehaviour
 				GameObject effect = Instantiate(pickupEffect, player1.position, player1.rotation) as GameObject;
 				Destroy(effect, 0.5f);
 			
-				FindObjectOfType<AudioManager>().Play("Power Up");
+				FindObjectOfType<AudioManager>().Play("Power Down");
                 player1.localScale -= new Vector3(1f, 0f, 0f);
             }
         }
@@ -62,7 +62,7 @@ public class PlayerShooting : MonoBehaviour
 				GameObject effect = Instantiate(pickupEffect, player2.position, player2.rotation) as GameObject;
 				Destroy(effect, 0.5f);
 				
-				FindObjectOfType<AudioManager>().Play("Power Up");
+				FindObjectOfType<AudioManager>().Play("Power Down");
                 player2.localScale -= new Vector3(1f, 0f, 0f);
             }
         }

@@ -5303,6 +5303,12 @@ MonoBehaviour:
     pitch: 1.1
     loop: 0
     source: {fileID: 0}
+  - name: Power Down
+    clip: {fileID: 8300000, guid: 40bfbac61c566bd40977212a1141b385, type: 3}
+    volume: 0.4
+    pitch: 1.1
+    loop: 0
+    source: {fileID: 0}
 --- !u!4 &1950208814
 Transform:
   m_ObjectHideFlags: 0
