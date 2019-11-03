@@ -6,7 +6,7 @@ public class ComputerAgent : MonoBehaviour
 {
     public Transform ball;
     public float hitSpeed = 150f;
-
+	private bool armed = false;
     public float speed = 4.0f;
     public double pToKick = 0.5f; // probability of kicking
     // Start is called before the first frame update
@@ -31,6 +31,8 @@ public class ComputerAgent : MonoBehaviour
 
         transform.Translate(nX * Time.deltaTime, 0, 0);
 		
+		
+		
 		// ComputerAgent move in z coordinate bug fix:
 		Vector3 newPosition = transform.position;
 		newPosition.z = 8.2f;
@@ -46,4 +48,20 @@ public class ComputerAgent : MonoBehaviour
             Vector3 d = (transform.position - collision.transform.position).normalized;
         }
     }
+	
+	public void CanShoot()
+	{
+		armed = true;
+	}
+	
+	public void CantShoot()
+	{
+		armed = false;
+	}
+	
+	public bool isArmed()
+	{
+		return armed;
+	}
+	
 }

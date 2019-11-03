@@ -10,6 +10,7 @@ public class PowerUp : MonoBehaviour
     public BallMovement ball;
     public Transform player1, player2;
 	public Joybutton joybutton;
+	public ComputerAgent computerAgent;
 	
     void OnLevelWasLoaded()
     {
@@ -112,7 +113,7 @@ public class PowerUp : MonoBehaviour
         {
 			if (ball.lastCollision == 1)
             {
-				joybutton.Unhide();
+				computerAgent.CanShoot();
             }
 			if (ball.lastCollision == 2)
             {
