@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Threading;
 
 public class PowerUp : MonoBehaviour
 {
@@ -10,7 +9,9 @@ public class PowerUp : MonoBehaviour
     public GameObject pickupEffect;
     public BallMovement ball;
     public Transform player1, player2;
-
+	public Joybutton joybutton;
+	public ComputerAgent computerAgent;
+	
     void OnLevelWasLoaded()
     {
         Init();
@@ -106,6 +107,17 @@ public class PowerUp : MonoBehaviour
             if (ball.lastCollision == 2)
             {
                 player2.localScale = new Vector3(5f, 1f, 1f);
+            }
+        }
+		if (this.gameObject.name == "Monkey")
+        {
+			if (ball.lastCollision == 1)
+            {
+				computerAgent.CanShoot();
+            }
+			if (ball.lastCollision == 2)
+            {
+				joybutton.Unhide();
             }
         }
     }
