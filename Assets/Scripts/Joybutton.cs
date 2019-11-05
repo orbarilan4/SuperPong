@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.EventSystems;
 using System.Collections.Generic;
 using System.Collections;
@@ -37,13 +37,15 @@ public class Joybutton : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 
 	public void OnPointerDown(PointerEventData eventData)
 	{
-		Debug.Log("press");
-		pressed = true;
+		// This check is for AFK (pause state)
+		if(Time.timeScale != 0f){
+			pressed = true;
+		}
 	}
 	public void OnPointerUp(PointerEventData eventData)
 	{
-		Debug.Log("not press");
-		pressed = false;
+		if(Time.timeScale != 0f){
+			pressed = false;
+		}
 	}
-	
 }

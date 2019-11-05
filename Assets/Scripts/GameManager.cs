@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public KeyCode menuKeyCode, instructionsKeyCode, pauseKeyCode;
     public GameObject backgroundScreen, instructionsScreen, pauseScreen, winnerText, pressEscText, ballObject;
     public BallMovement ballMovement;
+	public ControlButton exitButton,instructionsButton,pauseButton;
 
     void Start()
     {
@@ -29,9 +30,10 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(menuKeyCode))
+        if (Input.GetKeyDown(menuKeyCode) || exitButton.GetControlStatus() == "Exit Button")
         {
             SceneManager.LoadScene("Menu", LoadSceneMode.Single);
+			exitButton.resetControlStatus();
         }
         if (Input.GetKeyDown(instructionsKeyCode))
         {
@@ -46,9 +48,10 @@ public class GameManager : MonoBehaviour
             {
                 Resume();
             }
+			instructionsButton.resetControlStatus();
         }
 
-        if (Input.GetKeyDown(pauseKeyCode))
+        if (Input.GetKeyDown(pauseKeyCode) || pauseButton.GetControlStatus() == "Pause Button")
         {
             isShowingPause = !isShowingPause;
             pauseScreen.SetActive(isShowingPause);
@@ -60,6 +63,7 @@ public class GameManager : MonoBehaviour
             {
                 Resume();
             }
+			pauseButton.resetControlStatus();
         }
     }
 
