@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     public KeyCode menuKeyCode, instructionsKeyCode, pauseKeyCode;
     public GameObject backgroundScreen, instructionsScreen, pauseScreen, winnerText, pressEscText, ballObject;
     public BallMovement ballMovement;
-	public ControlButton exitButton,instructionsButton,pauseButton;
+	public ControlButton exitButton,pauseButton;
 
     void Start()
     {
@@ -48,7 +48,6 @@ public class GameManager : MonoBehaviour
             {
                 Resume();
             }
-			instructionsButton.resetControlStatus();
         }
 
         if (Input.GetKeyDown(pauseKeyCode) || pauseButton.GetControlStatus() == "Pause Button")
