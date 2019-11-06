@@ -15,6 +15,7 @@ public class ARGameManager : MonoBehaviour
     public GameObject backgroundScreen, instructionsScreen, pauseScreen, winnerText, pressEscText, ballObject;
     private Vector3 ballPos, player1Pos, player2Pos, player1LocalScale, player2LocalScale;
     public ARBallMovement ballMovement;
+    public ARPlayerMovement playerMovement;
 
     void Start()
     {
@@ -40,6 +41,13 @@ public class ARGameManager : MonoBehaviour
 
     void Update()
     {
+        score1.text = ball.transform.position.x.ToString("F3");
+        score2.text = ballMovement.collided.ToString();
+
+        // score1.text = "1 - (" + player1.position.x.ToString("F2") + "," + player1.position.y.ToString("F2") + "," + player1.position.z.ToString("F2") + ")"
+        // + "(" + wall1.position.x.ToString("F2") + "," + wall1.position.y.ToString("F2") + "," + wall1.position.z.ToString("F2") + ")";
+        // score2.text = "2 - (" + player2.position.x.ToString("F2") + "," + player2.position.y.ToString("F2") + "," + player2.position.z.ToString("F2") + ")"
+        // + "(" + wall2.position.x.ToString("F2") + "," + wall2.position.y.ToString("F2") + "," + wall2.position.z.ToString("F2") + ")";
 
         //menu key
         if (Input.GetKeyDown(menuKeyCode))
