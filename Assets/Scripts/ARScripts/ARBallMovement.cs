@@ -8,6 +8,7 @@ public class ARBallMovement : MonoBehaviour
     public float speed, originalSpeed;
     private const float DISCOUNT_FACTOR = 0.85f;
     private int lastCollision;
+    public bool collided = false;
 
     void Start()
     {
@@ -31,12 +32,13 @@ public class ARBallMovement : MonoBehaviour
         originalSpeed = newSpeed;
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider collision)
     {
         Vector3 velocity = rb.velocity;
 
-        if (collision.gameObject.tag == "Wall")
+        if (collision.gameObject.tag == "Wall" && !collided)
         {
+            collided = true;
             velocity.x *= -1;
             velocity.z += 0.009f;
             rb.velocity = velocity;
@@ -44,7 +46,6 @@ public class ARBallMovement : MonoBehaviour
 
         if (collision.gameObject.tag == "Paddle")
         {
-
             if (collision.gameObject.name == "Player2")
             {
                 float paddleX = collision.transform.position.x;
@@ -96,8 +97,15 @@ public class ARBallMovement : MonoBehaviour
 
             velocity.z *= -1;
             rb.velocity = velocity;
-            //rb.velocity = new Vector3(velocity.x, 0, velocity.z) * speed;
             FindObjectOfType<AudioManager>().Play("Ball Hit");
+        }
+    }
+
+    public void OnTriggerExit(Collider collision)
+    {
+        if (collision.gameObject.tag == "Wall")
+        {
+            collided = false;
         }
     }
 
