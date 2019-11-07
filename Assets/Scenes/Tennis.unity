@@ -2857,7 +2857,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
-<<<<<<< master
 --- !u!114 &978664430
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2870,8 +2869,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba71297ff984142a3b74656ab93bf020, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-=======
->>>>>>> added AR Scene..still need to fix speeds
 --- !u!65 &978664431
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3416,7 +3413,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< master
 --- !u!114 &1499114960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3429,8 +3425,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba71297ff984142a3b74656ab93bf020, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-=======
->>>>>>> added AR Scene..still need to fix speeds
 --- !u!54 &1499114961
 Rigidbody:
   m_ObjectHideFlags: 0
