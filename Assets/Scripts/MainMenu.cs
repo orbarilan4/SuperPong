@@ -7,8 +7,8 @@ using TMPro;
 public class MainMenu : MonoBehaviour
 {
 
-    public static int modePick = 0; // 0 - soccer, 1 - tennis
-    public TextMeshProUGUI soccerModeText, tennisModeText;
+    public static int modePick = 0; // 0 - soccer, 1 - tennis, 2 - AR
+    public TextMeshProUGUI soccerModeText, tennisModeText, arModeText;
     public TMP_ColorGradient red, green;
 
     void Start()
@@ -25,6 +25,10 @@ public class MainMenu : MonoBehaviour
         else if (modePick == 1)
         {
             SceneManager.LoadScene("Tennis");
+        }
+        else if (modePick == 2)
+        {
+            SceneManager.LoadScene("AR");
         }
         PlayMenuSound();
     }
@@ -59,18 +63,34 @@ public class MainMenu : MonoBehaviour
         setModesColors();
     }
 
+    public void pickAR()
+    {
+        modePick = 2;
+        PlayMenuSound();
+        setModesColors();
+    }
+
     public void setModesColors()
     {
         if (modePick == 0)
         {
             soccerModeText.colorGradientPreset = green;
             tennisModeText.colorGradientPreset = red;
+            arModeText.colorGradientPreset = red;
 
         }
         else if (modePick == 1)
         {
             tennisModeText.colorGradientPreset = green;
             soccerModeText.colorGradientPreset = red;
+            arModeText.colorGradientPreset = red;
+
+        }
+        else if (modePick == 2)
+        {
+            arModeText.colorGradientPreset = green;
+            soccerModeText.colorGradientPreset = red;
+            tennisModeText.colorGradientPreset = red;
         }
     }
 }
