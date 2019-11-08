@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
+using System;
 
-public class GoalTrigger : MonoBehaviour
+public class ARGoalTrigger : MonoBehaviour
 {
-    public GameManager gameManager;
+    public ARGameManager gameManager;
     public GameObject ball;
 
     void OnTriggerEnter(Collider other)

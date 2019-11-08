@@ -3,19 +3,19 @@ using UnityEngine.SceneManagement;
 using TMPro;
 using System.Threading;
 
-public class GameManager : MonoBehaviour
+public class ARGameManager : MonoBehaviour
 {
-    public float resetDelay = 1;
-    public int player1Score, player2Score;
+    private float resetDelay = 1;
+    private int player1Score, player2Score;
     public int scoreTarget;
-    public bool endGame = false, isShowingInstructions = false, isShowingPause = false;
+    private bool endGame = false, isShowingInstructions = false, isShowingPause = false;
     public Transform player1, player2, ball;
     public TMP_Text score1, score2, winner, pressEsc;
     public KeyCode menuKeyCode, instructionsKeyCode, pauseKeyCode;
     public GameObject backgroundScreen, instructionsScreen, pauseScreen, winnerText, pressEscText, ballObject;
     private Vector3 ballPos, player1Pos, player2Pos, player1LocalScale, player2LocalScale;
-    public BallMovement ballMovement;
-	public ControlButton exitButton,pauseButton;
+    public ARBallMovement ballMovement;
+    public ARPlayerMovement playerMovement;
 
     void Start()
     {
@@ -41,11 +41,21 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(menuKeyCode) || exitButton.GetControlStatus() == "Exit Button")
+        score1.text = ball.transform.position.x.ToString("F3");
+        score2.text = ballMovement.collided.ToString();
+
+        // score1.text = "1 - (" + player1.position.x.ToString("F2") + "," + player1.position.y.ToString("F2") + "," + player1.position.z.ToString("F2") + ")"
+        // + "(" + wall1.position.x.ToString("F2") + "," + wall1.position.y.ToString("F2") + "," + wall1.position.z.ToString("F2") + ")";
+        // score2.text = "2 - (" + player2.position.x.ToString("F2") + "," + player2.position.y.ToString("F2") + "," + player2.position.z.ToString("F2") + ")"
+        // + "(" + wall2.position.x.ToString("F2") + "," + wall2.position.y.ToString("F2") + "," + wall2.position.z.ToString("F2") + ")";
+
+        //menu key
+        if (Input.GetKeyDown(menuKeyCode))
         {
             SceneManager.LoadScene("Menu", LoadSceneMode.Single);
-			exitButton.resetControlStatus();
         }
+
+        //instructions key
         if (Input.GetKeyDown(instructionsKeyCode))
         {
             isShowingInstructions = !isShowingInstructions;
@@ -61,7 +71,8 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(pauseKeyCode) || pauseButton.GetControlStatus() == "Pause Button")
+        //pause key
+        if (Input.GetKeyDown(pauseKeyCode))
         {
             isShowingPause = !isShowingPause;
             pauseScreen.SetActive(isShowingPause);
@@ -73,7 +84,6 @@ public class GameManager : MonoBehaviour
             {
                 Resume();
             }
-			pauseButton.resetControlStatus();
         }
     }
 
@@ -93,7 +103,7 @@ public class GameManager : MonoBehaviour
         }
         if (endGame == true)
         {
-            Pause(); // Pause game
+            Pause();
             FindObjectOfType<AudioManager>().Play("GameOver");
             FindObjectOfType<AudioManager>().Stop("Intro");
         }
@@ -103,7 +113,7 @@ public class GameManager : MonoBehaviour
     {
         ballObject.SetActive(true);
         ballMovement.setBallVelocity();
-        ballMovement.setOriginalSpeed(10);
+        ballMovement.setOriginalSpeed(0.4f);
 
         ball.position = ballPos;
         player1.position = player1Pos;
@@ -122,8 +132,6 @@ public class GameManager : MonoBehaviour
 
     public void Goal(int scorer)
     {
-        //Debug.Log("Player" + scorer + " scores!");
-
         if (scorer == 1)
         {
             player1Score = AddScore(player1Score);
