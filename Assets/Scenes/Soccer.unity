@@ -1584,7 +1584,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 695329762}
-  rb: {fileID: 2092283586}
   ball: {fileID: 2092283581}
 --- !u!1 &534669902
 GameObject:
@@ -1790,6 +1789,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53632e9b6568db14fbe67a6755d392b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  img: {fileID: 0}
 --- !u!114 &549887694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2007,7 +2007,6 @@ MonoBehaviour:
   ballObject: {fileID: 2092283581}
   ballMovement: {fileID: 2092283587}
   exitButton: {fileID: 549887693}
-  instructionsButton: {fileID: 0}
   pauseButton: {fileID: 745991028}
 --- !u!4 &695329763
 Transform:
@@ -2073,6 +2072,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53632e9b6568db14fbe67a6755d392b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  img: {fileID: 745991029}
 --- !u!114 &745991029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2213,7 +2213,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 695329762}
-  rb: {fileID: 2092283586}
   ball: {fileID: 2092283581}
 --- !u!1 &766097524
 GameObject:

@@ -96,6 +96,7 @@ public class GameManager : MonoBehaviour
             Pause(); // Pause game
             FindObjectOfType<AudioManager>().Play("GameOver");
             FindObjectOfType<AudioManager>().Stop("Intro");
+			pauseButton.Hide();
         }
     }
 

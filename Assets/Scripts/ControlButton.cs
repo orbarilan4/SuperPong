@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class ControlButton : MonoBehaviour, IPointerDownHandler
 {
 	private string controlStatus;	
-	
+	public Image img;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +18,11 @@ public class ControlButton : MonoBehaviour, IPointerDownHandler
     {
 	
     }
+	
+	public void Hide()
+	{
+		img.enabled = false;
+	}
 	
 	public string GetControlStatus()
 	{

@@ -216,6 +216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53632e9b6568db14fbe67a6755d392b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  img: {fileID: 52973145}
 --- !u!114 &52973145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1387,7 +1388,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 695329762}
-  rb: {fileID: 2092283586}
   ball: {fileID: 2092283581}
 --- !u!1 &526531973 stripped
 GameObject:
@@ -2038,7 +2038,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 695329762}
-  rb: {fileID: 2092283586}
   ball: {fileID: 2092283581}
 --- !u!1 &868949395
 GameObject:
@@ -2419,6 +2418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53632e9b6568db14fbe67a6755d392b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  img: {fileID: 0}
 --- !u!114 &895025655
 MonoBehaviour:
   m_ObjectHideFlags: 0
