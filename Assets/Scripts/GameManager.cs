@@ -8,14 +8,14 @@ public class GameManager : MonoBehaviour
     public float resetDelay = 1;
     public int player1Score, player2Score;
     public int scoreTarget;
-    public bool endGame = false, isShowingInstructions = false, isShowingPause = false;
+    public bool endGame = false, isShowingPause = false;
     public Transform player1, player2, ball;
-    public TMP_Text score1, score2, winner, pressEsc;
-    public KeyCode menuKeyCode, instructionsKeyCode, pauseKeyCode;
-    public GameObject backgroundScreen, instructionsScreen, pauseScreen, winnerText, pressEscText, ballObject;
+    public TMP_Text score1, score2, winner;
+    public KeyCode menuKeyCode, pauseKeyCode;
+    public GameObject pauseScreen, winnerText, ballObject;
     private Vector3 ballPos, player1Pos, player2Pos, player1LocalScale, player2LocalScale;
     public BallMovement ballMovement;
-	public ControlButton exitButton,pauseButton;
+    public ControlButton exitButton, pauseButton;
 
     void Start()
     {
@@ -44,21 +44,7 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(menuKeyCode) || exitButton.GetControlStatus() == "Exit Button")
         {
             SceneManager.LoadScene("Menu", LoadSceneMode.Single);
-			exitButton.resetControlStatus();
-        }
-        if (Input.GetKeyDown(instructionsKeyCode))
-        {
-            isShowingInstructions = !isShowingInstructions;
-            backgroundScreen.SetActive(isShowingInstructions);
-            instructionsScreen.SetActive(isShowingInstructions);
-            if (isShowingInstructions)
-            {
-                Pause();
-            }
-            else
-            {
-                Resume();
-            }
+            exitButton.resetControlStatus();
         }
 
         if (Input.GetKeyDown(pauseKeyCode) || pauseButton.GetControlStatus() == "Pause Button")
@@ -73,7 +59,7 @@ public class GameManager : MonoBehaviour
             {
                 Resume();
             }
-			pauseButton.resetControlStatus();
+            pauseButton.resetControlStatus();
         }
     }
 
@@ -81,13 +67,13 @@ public class GameManager : MonoBehaviour
     {
         if (player1Score == scoreTarget)
         {
-            Debug.Log("player 1 wins !");
+            Debug.Log("You Win !");
             setWinnerText(1);
             endGame = true;
         }
         if (player2Score == scoreTarget)
         {
-            Debug.Log("player 2 wins !");
+            Debug.Log("You Lose !");
             setWinnerText(2);
             endGame = true;
         }
@@ -159,9 +145,14 @@ public class GameManager : MonoBehaviour
     private void setWinnerText(int player)
     {
         winnerText.SetActive(true);
-        pressEscText.SetActive(true);
-        winner.text = "Player " + player + " Wins !";
-        pressEsc.text = "Press the Esc key for startup Menu";
+        if (player == 1)
+        {
+            winner.text = "You Win !";
+        }
+        else
+        {
+            winner.text = "You Lose !";
+        }
     }
 
     void Pause()

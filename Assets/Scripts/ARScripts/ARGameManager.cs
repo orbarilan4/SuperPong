@@ -8,14 +8,13 @@ public class ARGameManager : MonoBehaviour
     private float resetDelay = 1;
     private int player1Score, player2Score;
     public int scoreTarget;
-    private bool endGame = false, isShowingInstructions = false, isShowingPause = false;
+    private bool endGame = false, isShowingPause = false;
     public Transform player1, player2, ball;
-    public TMP_Text score1, score2, winner, pressEsc;
-    public KeyCode menuKeyCode, instructionsKeyCode, pauseKeyCode;
-    public GameObject backgroundScreen, instructionsScreen, pauseScreen, winnerText, pressEscText, ballObject;
+    public TMP_Text score1, score2, winner;
+    public GameObject pauseScreen, winnerText, ballObject;
     private Vector3 ballPos, player1Pos, player2Pos, player1LocalScale, player2LocalScale;
     public ARBallMovement ballMovement;
-    public ARPlayerMovement playerMovement;
+    public ControlButton exitButton, pauseButton;
 
     void Start()
     {
@@ -41,38 +40,15 @@ public class ARGameManager : MonoBehaviour
 
     void Update()
     {
-        score1.text = ball.transform.position.x.ToString("F3");
-        score2.text = ballMovement.collided.ToString();
-
-        // score1.text = "1 - (" + player1.position.x.ToString("F2") + "," + player1.position.y.ToString("F2") + "," + player1.position.z.ToString("F2") + ")"
-        // + "(" + wall1.position.x.ToString("F2") + "," + wall1.position.y.ToString("F2") + "," + wall1.position.z.ToString("F2") + ")";
-        // score2.text = "2 - (" + player2.position.x.ToString("F2") + "," + player2.position.y.ToString("F2") + "," + player2.position.z.ToString("F2") + ")"
-        // + "(" + wall2.position.x.ToString("F2") + "," + wall2.position.y.ToString("F2") + "," + wall2.position.z.ToString("F2") + ")";
-
         //menu key
-        if (Input.GetKeyDown(menuKeyCode))
+        if (exitButton.GetControlStatus() == "Exit Button")
         {
             SceneManager.LoadScene("Menu", LoadSceneMode.Single);
-        }
-
-        //instructions key
-        if (Input.GetKeyDown(instructionsKeyCode))
-        {
-            isShowingInstructions = !isShowingInstructions;
-            backgroundScreen.SetActive(isShowingInstructions);
-            instructionsScreen.SetActive(isShowingInstructions);
-            if (isShowingInstructions)
-            {
-                Pause();
-            }
-            else
-            {
-                Resume();
-            }
+            exitButton.resetControlStatus();
         }
 
         //pause key
-        if (Input.GetKeyDown(pauseKeyCode))
+        if (pauseButton.GetControlStatus() == "Pause Button")
         {
             isShowingPause = !isShowingPause;
             pauseScreen.SetActive(isShowingPause);
@@ -84,6 +60,7 @@ public class ARGameManager : MonoBehaviour
             {
                 Resume();
             }
+            pauseButton.resetControlStatus();
         }
     }
 
@@ -91,13 +68,13 @@ public class ARGameManager : MonoBehaviour
     {
         if (player1Score == scoreTarget)
         {
-            Debug.Log("player 1 wins !");
+            Debug.Log("You Lose !");
             setWinnerText(1);
             endGame = true;
         }
         if (player2Score == scoreTarget)
         {
-            Debug.Log("player 2 wins !");
+            Debug.Log("You Win !");
             setWinnerText(2);
             endGame = true;
         }
@@ -106,6 +83,7 @@ public class ARGameManager : MonoBehaviour
             Pause();
             FindObjectOfType<AudioManager>().Play("GameOver");
             FindObjectOfType<AudioManager>().Stop("Intro");
+            pauseButton.Hide();
         }
     }
 
@@ -166,9 +144,14 @@ public class ARGameManager : MonoBehaviour
     private void setWinnerText(int player)
     {
         winnerText.SetActive(true);
-        pressEscText.SetActive(true);
-        winner.text = "Player " + player + " Wins !";
-        pressEsc.text = "Press the Esc key for startup Menu";
+        if (player == 2)
+        {
+            winner.text = "You Win !";
+        }
+        else
+        {
+            winner.text = "You Lose !";
+        }
     }
 
     void Pause()
