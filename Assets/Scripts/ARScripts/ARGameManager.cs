@@ -80,7 +80,7 @@ public class ARGameManager : MonoBehaviour
         }
         if (endGame == true)
         {
-            Pause();
+            Pause(); // Pause game
             FindObjectOfType<AudioManager>().Play("GameOver");
             FindObjectOfType<AudioManager>().Stop("Intro");
             pauseButton.Hide();

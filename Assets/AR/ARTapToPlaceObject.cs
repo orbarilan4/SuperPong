@@ -7,11 +7,12 @@ using System;
 
 public class ARTapToPlaceObject : MonoBehaviour
 {
-    public GameObject objectToPlace;
-    public GameObject placementIndicator;
+    public GameObject objectToPlace, placementIndicator;
+    public GameObject doNotRotate, moveForwardBackward, tapToPLay;
     private ARSessionOrigin arOrigin;
     private Pose placementPose;
     private bool placementPoseIsValid = false, objectIsPlaced = false;
+
 
     void Start()
     {
@@ -33,6 +34,9 @@ public class ARTapToPlaceObject : MonoBehaviour
     {
         Instantiate(objectToPlace, placementPose.position, placementPose.rotation);
         objectIsPlaced = true;
+        doNotRotate.SetActive(false);
+        //moveForwardBackward.SetActive(false);
+        tapToPLay.SetActive(false);
     }
 
     private void UpdatePlacementIndicator()
@@ -42,11 +46,16 @@ public class ARTapToPlaceObject : MonoBehaviour
             if (placementPoseIsValid)
             {
                 placementIndicator.SetActive(true);
+                moveForwardBackward.SetActive(false);
+                tapToPLay.SetActive(true);
                 placementIndicator.transform.SetPositionAndRotation(placementPose.position, placementPose.rotation);
             }
             else
             {
                 placementIndicator.SetActive(false);
+                //doNotRotate.SetActive(true);
+                //moveForwardBackward.SetActive(true);
+                tapToPLay.SetActive(false);
             }
         }
     }
