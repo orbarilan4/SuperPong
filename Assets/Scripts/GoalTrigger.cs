@@ -11,13 +11,13 @@ public class GoalTrigger : MonoBehaviour
         {
             if (this.name == "Gate2")
             {
-                //the scorer is player2
-                gameManager.Goal(2);
+                //the scorer is player1
+                gameManager.Goal(1);
             }
             else
             {
-                //the scorer is player1
-                gameManager.Goal(1);
+                //the scorer is player2
+                gameManager.Goal(2);
             }
             ball.SetActive(false);
             FindObjectOfType<AudioManager>().Play("Goal");
