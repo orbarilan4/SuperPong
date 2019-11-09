@@ -145,7 +145,7 @@ public class GameManager : MonoBehaviour
     private void setWinnerText(int player)
     {
         winnerText.SetActive(true);
-        if (player == 1)
+        if (player == 2)
         {
             winner.text = "You Win !";
         }
