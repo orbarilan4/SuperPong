@@ -83,6 +83,7 @@ public class ARGameManager : MonoBehaviour
             Pause();
             FindObjectOfType<AudioManager>().Play("GameOver");
             FindObjectOfType<AudioManager>().Stop("Intro");
+            pauseButton.Hide();
         }
     }
 
